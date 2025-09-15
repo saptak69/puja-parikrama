@@ -1,0 +1,112 @@
+/* CSS for index.html (Landing Page) */
+:root {
+    --primary-red: #D32F2F;
+    --secondary-red: #B71C1C;
+    --accent-gold: #FFC107;
+    --dark-text: #212121;
+    --light-text: #757575;
+    --secondary-white: #FFFFFF;
+    --light-bg: #FFF8E1;
+    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Hind Siliguri', sans-serif; background-color: var(--light-bg); color: var(--dark-text); overflow-x: hidden; }
+
+/* Hero Section */
+.hero { position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--secondary-white); overflow: hidden; }
+.hero-slider { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; }
+.hero-slider .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center center; opacity: 0; animation: fade-in-out 24s infinite; }
+.hero-slider .slide:nth-child(1) { background-image: url('https://picsum.photos/seed/durga-maa-1/1920/1080'); animation-delay: 0s; }
+.hero-slider .slide:nth-child(2) { background-image: url('https://picsum.photos/seed/durga-maa-2/1920/1080'); animation-delay: 6s; }
+.hero-slider .slide:nth-child(3) { background-image: url('https://picsum.photos/seed/durga-maa-3/1920/1080'); animation-delay: 12s; }
+.hero-slider .slide:nth-child(4) { background-image: url('https://picsum.photos/seed/durga-maa-4/1920/1080'); animation-delay: 18s; }
+@keyframes fade-in-out { 0% { opacity: 0; transform: scale(1); } 12.5% { opacity: 1; } 25% { opacity: 1; transform: scale(1.05); } 37.5% { opacity: 0; transform: scale(1.05); } 100% { opacity: 0; transform: scale(1); } }
+.hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(155, 71, 71, 0.8), rgba(211, 47, 47, 0.7), rgba(255, 140, 0, 0.6)); z-index: -1; }
+.hero-content { z-index: 1; padding: 20px; max-width: 800px; animation: fadeInUp 1.2s ease-out; }
+.hero .greeting { font-size: 2rem; font-weight: 600; color: var(--accent-gold); margin-bottom: 2rem; text-shadow: 0 2px 8px rgba(0,0,0,0.5); animation: pulse 2.5s infinite; }
+@keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+.hero h1 { font-size: 3.5rem; font-weight: 700; margin-bottom: 1rem; text-shadow: 0 3px 10px rgba(0,0,0,0.4); }
+.hero-description { font-size: 1.2rem; color: var(--secondary-white); max-width: 700px; margin: 0 auto 2.5rem; line-height: 1.6; }
+.cta-button { display: inline-block; background: var(--accent-gold); color: var(--dark-text); padding: 1rem 2.5rem; border-radius: 50px; font-size: 1.1rem; font-weight: 700; text-decoration: none; transition: var(--transition); box-shadow: 0 4px 20px rgba(0,0,0,0.2); border: none; cursor: pointer; }
+.cta-button:hover { background: var(--secondary-white); transform: translateY(-5px) scale(1.05); box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Other Sections */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.features { padding: 5rem 0; background-color: var(--secondary-white); }
+.section-title { text-align: center; font-size: 2.5rem; color: var(--primary-red); margin-bottom: 3rem; position: relative; }
+.section-title::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 80px; height: 4px; background-color: var(--accent-gold); }
+.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+.feature-card { background-color: var(--secondary-white); border-radius: 10px; padding: 2rem; text-align: center; box-shadow: var(--card-shadow); transition: var(--transition); }
+.feature-card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15); }
+.feature-icon { font-size: 3rem; color: var(--primary-red); margin-bottom: 1.5rem; }
+.feature-card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--dark-text); }
+.feature-card p { color: var(--light-text); line-height: 1.6; }
+
+/* Carousel Section */
+.carousel-section { padding: 5rem 0; background-color: var(--light-bg); }
+.carousel-container { position: relative; max-width: 1000px; margin: 0 auto; overflow: hidden; border-radius: 15px; box-shadow: var(--card-shadow); }
+.carousel-track { display: flex; transition: transform 0.5s ease; }
+.carousel-slide { min-width: 100%; position: relative; }
+.carousel-slide img { width: 100%; height: 500px; object-fit: cover; display: block; }
+.carousel-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent); color: var(--secondary-white); padding: 2rem; text-align: center; }
+.carousel-caption h3 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+.carousel-controls { position: absolute; top: 50%; width: 100%; display: flex; justify-content: space-between; padding: 0 20px; transform: translateY(-50%); }
+.carousel-btn { background-color: rgba(255, 255, 255, 0.3); color: var(--secondary-white); border: none; width: 50px; height: 50px; border-radius: 50%; font-size: 1.5rem; cursor: pointer; transition: var(--transition); display: flex; align-items: center; justify-content: center; }
+.carousel-btn:hover { background-color: rgba(255, 255, 255, 0.5); }
+.carousel-indicators { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; }
+.indicator { width: 12px; height: 12px; border-radius: 50%; background-color: rgba(255, 255, 255, 0.5); cursor: pointer; transition: var(--transition); }
+.indicator.active { background-color: var(--accent-gold); transform: scale(1.2); }
+
+/* Auth Modal */
+.auth-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); z-index: 1000; align-items: center; justify-content: center; }
+.auth-modal.active { display: flex; }
+.auth-container { background-color: var(--secondary-white); border-radius: 15px; width: 90%; max-width: 450px; padding: 2.5rem; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); position: relative; animation: modalSlideIn 0.5s ease-out; }
+@keyframes modalSlideIn { from { opacity: 0; transform: translateY(-50px); } to { opacity: 1; transform: translateY(0); } }
+.auth-close { position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 1.5rem; color: var(--light-text); cursor: pointer; transition: var(--transition); }
+.auth-close:hover { color: var(--primary-red); }
+.auth-tabs { display: flex; margin-bottom: 2rem; border-bottom: 1px solid #eee; }
+.auth-tab { flex: 1; padding: 1rem; text-align: center; background: none; border: none; font-size: 1.1rem; font-weight: 600; color: var(--light-text); cursor: pointer; transition: var(--transition); position: relative; }
+.auth-tab.active { color: var(--primary-red); }
+.auth-tab.active::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 100%; height: 3px; background-color: var(--primary-red); }
+.auth-form { display: none; }
+.auth-form.active { display: block; animation: fadeIn 0.5s ease-out; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.form-group { margin-bottom: 1.5rem; }
+.form-group label { display: block; margin-bottom: 0.5rem; font-weight: 500; color: var(--dark-text); }
+.form-group input { width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem; transition: var(--transition); }
+.form-group input:focus { border-color: var(--primary-red); outline: none; box-shadow: 0 0 0 2px rgba(211, 47, 47, 0.2); }
+.auth-submit { width: 100%; padding: 1rem; background-color: var(--primary-red); color: var(--secondary-white); border: none; border-radius: 5px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: var(--transition); }
+.auth-submit:hover { background-color: var(--secondary-red); }
+.auth-error { color: var(--primary-red); margin-top: 1rem; text-align: center; display: none; }
+.auth-error.active { display: block; }
+.auth-success { color: #4CAF50; margin-top: 1rem; text-align: center; display: none; }
+.auth-success.active { display: block; }
+.divider { display: flex; align-items: center; margin: 1.5rem 0; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background-color: #ddd; }
+.divider span { padding: 0 1rem; color: var(--light-text); }
+.google-signin { width: 100%; padding: 0.8rem; background-color: var(--secondary-white); color: var(--dark-text); border: 1px solid #ddd; border-radius: 5px; font-size: 1rem; font-weight: 500; cursor: pointer; transition: var(--transition); display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 1rem; }
+.google-signin:hover { background-color: #f5f5f5; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); }
+.google-icon { width: 20px; height: 20px; }
+.spinner { display: none; width: 20px; height: 20px; border: 2px solid rgba(255, 255, 255, 0.3); border-radius: 50%; border-top-color: var(--secondary-white); animation: spin 1s ease-in-out infinite; margin: 0 auto; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.google-signin.loading .google-icon { display: none; }
+.google-signin.loading .spinner { display: block; }
+
+/* Footer */
+footer { background-color: var(--primary-red); color: var(--secondary-white); padding: 3rem 0; text-align: center; }
+.footer-content { display: flex; flex-direction: column; align-items: center; }
+.footer-logo { font-size: 1.8rem; font-weight: 700; margin-bottom: 1rem; }
+.footer-social { display: flex; gap: 1.5rem; margin-top: 1.5rem; }
+.social-icon { width: 40px; height: 40px; border-radius: 50%; background-color: rgba(255, 255, 255, 0.2); display: flex; align-items: center; justify-content: center; color: var(--secondary-white); transition: var(--transition); }
+.social-icon:hover { background-color: var(--accent-gold); color: var(--dark-text); transform: translateY(-3px); }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.8rem; }
+    .hero .greeting { font-size: 1.8rem; }
+    .hero p { font-size: 1rem; }
+    .carousel-slide img { height: 300px; }
+}

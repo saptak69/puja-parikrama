@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pujo Parikrama Planner</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;700&display=swap">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <link rel="stylesheet" href="css/planner-style.css">
+</head>
+<body>
+    <div class="app-header">
+        <h1>Pujo Parikrama Planner</h1>
+        <p>Plan your perfect Durga Puja itinerary</p>
+    </div>
+
+    <div class="container">
+        <div class="plan-view active" id="plan-view">
+             <div class="section">
+                <div class="section-content" style="padding: 0.8rem 1rem;">
+                    <div class="search-bar-container">
+                        <input type="text" id="pandal-search" placeholder="Search for a pandal...">
+                        <button id="search-btn"><i class="fas fa-search"></i></button>
+                        <div id="search-results" class="search-results-list"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="section">
+                <div class="section-header"><i class="fas fa-cog"></i> Configuration</div>
+                <div class="section-content">
+                    <div class="form-group">
+                        <label>Select Area:</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="area-south" name="area" value="South">
+                                <label for="area-south">South Kolkata</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="area-north" name="area" value="North" checked>
+                                <label for="area-north">North Kolkata</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="area-all" name="area" value="All">
+                                <label for="area-all">All Areas</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="start-point">Starting Point:</label>
+                        <select id="start-point"></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="start-time">Start Time:</label>
+                        <input type="time" id="start-time" value="18:00">
+                    </div>
+                    <div class="form-group">
+                        <label for="end-time">End Time:</label>
+                        <input type="time" id="end-time" value="23:30">
+                    </div>
+                    <button class="generate-btn" id="generate-plan-btn">Generate Itinerary</button>
+                </div>
+            </div>
+            <div class="section">
+                <div class="section-header"><i class="fas fa-route"></i> Itineraries</div>
+                <div class="section-content">
+                    <div class="route-summary" id="route-summary" style="display: none;">
+                        <h4>Route Summary</h4>
+                        <div class="route-stats">
+                            <div class="route-stat">
+                                <div class="route-stat-value" id="total-distance">0 km</div>
+                                <div class="route-stat-label">Total Distance</div>
+                            </div>
+                            <div class="route-stat">
+                                <div class="route-stat-value" id="total-time">0 min</div>
+                                <div class="route-stat-label">Walking Time</div>
+                            </div>
+                            <div class="route-stat">
+                                <div class="route-stat-value" id="pandals-count">0</div>
+                                <div class="route-stat-label">Pandals</div>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 style="margin-bottom: 1rem;">Suggested Itinerary</h3>
+                    <ul class="itinerary-list" id="pandal-list"></ul>
+                    <div class="action-buttons" id="suggested-actions" style="display: none;">
+                        <button id="suggested-pdf-btn" class="pdf-button"><i class="fas fa-file-pdf"></i> PDF</button>
+                        <button id="suggested-share-btn" class="share-button"><i class="fas fa-share-alt"></i> Share</button>
+                    </div>
+                    <div class="gmaps-link-container">
+                        <a id="suggested-gmaps-link" href="#" target="_blank" class="gmaps-button" style="display: none;"><i class="fab fa-google"></i> Open in Google Maps</a>
+                    </div>
+                </div>
+            </div>
+            <div class="section">
+                <div class="section-header"><i class="fas fa-heart"></i> My Plan</div>
+                <div class="section-content">
+                    <div class="empty-state" id="empty-plan">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <p>Your plan is empty. Add pandals from the suggested itinerary.</p>
+                    </div>
+                    <ul class="itinerary-list" id="my-plan-list" style="display: none;"></ul>
+                    <div class="action-buttons" id="plan-actions" style="display: none;">
+                        <button id="pdf-btn" class="pdf-button"><i class="fas fa-file-pdf"></i> PDF</button>
+                        <button id="share-btn" class="share-button"><i class="fas fa-share-alt"></i> Share</button>
+                    </div>
+                    <div class="gmaps-link-container">
+                        <a id="custom-gmaps-link" href="#" target="_blank" class="gmaps-button" style="display: none;"><i class="fab fa-google"></i> Open in Google Maps</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="map-view" id="map-view">
+            <div class="section">
+                <div class="section-header"><i class="fas fa-map"></i> Pandal Map</div>
+                <div class="section-content">
+                    <div id="map" class="map-container"></div>
+                    <div id="map-overlay-list-container" class="map-overlay" style="display: none;">
+                        <div class="map-overlay-header">Current Route</div>
+                        <ul id="map-overlay-list" class="map-overlay-list"></ul>
+                    </div>
+                    <div style="margin-top: 1rem;">
+                        <button class="generate-btn" id="show-all-on-map">Show All North Kolkata Pandals</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mahavidya-view" id="mahavidya-view">
+                 <div class="mahavidya-header">
+                    <h2>The 10 Mahavidyas</h2>
+                    <p>The Ten Great Wisdom Goddesses of Hindu Tantra</p>
+                </div>
+
+                <div class="mahavidya-section">
+                    <div class="mahavidya-card">
+                        <div class="mahavidya-card-header"><i class="fas fa-star"></i> Kali</div>
+                        <div class="mahavidya-card-content">
+                            <img src="https://res.cloudinary.com/dtg77pktc/image/upload/v1757934437/sukanya-basu-orgxlq_LrBQ-unsplash_txp5mj.jpg" alt="Kali" class="mahavidya-image">
+                            <div class="mahavidya-description">
+                                <h3>Kali - The Black Mother</h3>
+                                <p>Kali is the first and foremost of the Mahavidyas. She represents time, change, power, creation, preservation, and destruction. Her name means "the black one" and she is often depicted standing on Shiva, with a garland of skulls and a skirt of arms.</p>
+                                <p>Kali embodies the fierce aspect of the divine feminine, destroying evil and ignorance to protect her devotees. She is the goddess of time and transformation, reminding us that all things are temporary and that death is a necessary part of life's cycle.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mahavidya-card">
+                        <div class="mahavidya-card-header"><i class="fas fa-star"></i> Tara</div>
+                        <div class="mahavidya-card-content">
+                            <img src="https://picsum.photos/seed/tara/600/300.jpg" alt="Tara" class="mahavidya-image">
+                            <div class="mahavidya-description">
+                                <h3>Tara - The Saviouress</h3>
+                                <p>Tara is the second Mahavidya, known as the goddess who guides and protects. Her name means "star" and she is often depicted as blue-skinned, similar to Kali, but with a more benevolent expression. She is associated with compassion and protection.</p>
+                                <p>Tara is believed to provide relief from suffering and guide her devotees across the ocean of consciousness. She represents unconditional love and the power to overcome obstacles. In Buddhist tradition, Tara is also highly revered as a bodhisattva of compassion.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mahavidya-card">
+                        <div class="mahavidya-card-header"><i class="fas fa-star"></i> Tripura Sundari</div>
+                        <div class="mahavidya-card-content">
+                            <img src="https://picsum.photos/seed/tripura/600/300.jpg" alt="Tripura Sundari" class="mahavidya-image">
+                            <div class="mahavidya-description">
+                                <h3>Tripura Sundari - The Beauty of Three Worlds</h3>
+                                <p>Tripura Sundari is the third Mahavidya, representing beauty, grace, and the ultimate reality. Her name means "beautiful in the three worlds" and she is often depicted as a sixteen-year-old girl, seated on a lotus.</p>
+                                <p>She embodies the divine feminine in its most beautiful and benign form. Tripura Sundari is associated with the Shri Chakra, a mystical diagram representing the cosmos and the human body. She represents the power of beauty to transcend the limitations of the physical world.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mahavidya-card">
+                        <div class="mahavidya-card-header"><i class="fas fa-star"></i> Bhuvaneshvari</div>
+                        <div class="mahavidya-card-content">
+                            <img src="https://picsum.photos/seed/bhuvaneshvari/600/300.jpg" alt="Bhuvaneshvari" class="mahavidya-image">
+                            <div class="mahavidya-description">
+                                <h3>Bhuvaneshvari - The Queen of the Universe</h3>
+                                <p>Bhuvaneshvari is the fourth Mahavidya, representing space and the cosmic mother. Her name means "ruler of the worlds" and she is often depicted with a red complexion, holding a noose and a goad.</p>
+                                <p>She embodies the concept of space that contains all creation. Bhuvaneshvari is associated with creation, preservation, and destruction of the universe. She teaches her devotees to see the divine in all things and to recognize the interconnectedness of all existence.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mahavidya-card">
+                        <div class="mahavidya-card-header"><i class="fas fa-star"></i> Bhairavi</div>
+                        <div class="mahavidya-card-content">
+                            <img src="https://picsum.photos/seed/bhairavi/600/300.jpg" alt="Bhairavi" class="mahavidya-image">
+                            <div class="mahavidya-description">
+                                <h3>Bhairavi - The Fierce Goddess</h3>
+                                <p>Bhairavi is the fifth Mahavidya, representing the fierce aspect of the divine feminine. Her name means "terrifying" and she is often depicted with a fierce expression, wearing a garland of skulls and holding weapons.</p>
+                                <p>She embodies the power of destruction that leads to transformation. Bhairavi is associated with the fire element and is believed to destroy ignorance and ego. She teaches her devotees to overcome fear and embrace change as a necessary part of spiritual growth.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mahavidya-card">
+                        <div class="mahavidya-card-header"><i class="fas fa-star"></i> Chinnamasta</div>
+                        <div class="mahavidya-card-content">
+                            <img src="https://picsum.photos/seed/chinnamasta/600/300.jpg" alt="Chinnamasta" class="mahavidya-image">
+                            <div class="mahavidya-description">
+                                <h3>Chinnamasta - The Self-Decapitated Goddess</h3>
+                                <p>Chinnamasta is the sixth Mahavidya, representing self-sacrifice and the control of sexual energy. She is depicted holding her own severed head, with three streams of blood flowing from her neck - one into her own mouth and the other two into the mouths of her attendants.</p>
+                                <p>She embodies the concept of self-sacrifice for the nourishment of others. Chinnamasta teaches her devotees to transcend the limitations of the physical body and ego. She represents the power of the life force and the ability to channel it for spiritual growth.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mahavidya-card">
+                        <div class="mahavidya-card-header"><i class="fas fa-star"></i> Dhumavati</div>
+                        <div class="mahavidya-card-content">
+                            <img src="https://picsum.photos/seed/dhumavati/600/300.jpg" alt="Dhumavati" class="mahavidya-image">
+                            <div class="mahavidya-description">
+                                <h3>Dhumavati - The Widow Goddess</h3>
+                                <p>Dhumavati is the seventh Mahavidya, representing the inauspicious and the void. Her name means "smoky one" and she is depicted as an old, ugly widow, riding a chariot without horses and holding a winnowing basket.</p>
+                                <p>She embodies the concept of loss, disappointment, and unfulfilled desires. Dhumavati teaches her devotees to look beyond the material world and find meaning in suffering. She represents the power of detachment and the ability to find peace in the midst of chaos.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mahavidya-card">
+                        <div class="mahavidya-card-header"><i class="fas fa-star"></i> Bagalamukhi</div>
+                        <div class="mahavidya-card-content">
+                            <img src="https://picsum.photos/seed/bagalamukhi/600/300.jpg" alt="Bagalamukhi" class="mahavidya-image">
+                            <div class="mahavidya-description">
+                                <h3>Bagalamukhi - The Paralyzer</h3>
+                                <p>Bagalamukhi is the eighth Mahavidya, representing the power to paralyze enemies. Her name means "crane-faced" and she is depicted with a golden complexion, pulling the tongue of a demon.</p>
+                                <p>She embodies the power to stop negative forces and protect her devotees from harm. Bagalamukhi is associated with the power of speech and the ability to control the mind. She teaches her devotees to overcome internal and external obstacles through inner strength and determination.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mahavidya-card">
+                        <div class="mahavidya-card-header"><i class="fas fa-star"></i> Matangi</div>
+                        <div class="mahavidya-card-content">
+                            <img src="https://picsum.photos/seed/matangi/600/300.jpg" alt="Matangi" class="mahavidya-image">
+                            <div class="mahavidya-description">
+                                <h3>Matangi - The Outcaste Goddess</h3>
+                                <p>Matangi is the ninth Mahavidya, representing the power of thought and expression. She is depicted with a dark or green complexion, holding a veena (a stringed instrument) and a parrot.</p>
+                                <p>She embodies the concept of inner knowledge and the power of the spoken word. Matangi is associated with the outcastes and the marginalized, teaching her devotees to find divinity in all aspects of life. She represents the power to transform impurity into purity and ignorance into wisdom.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mahavidya-card">
+                        <div class="mahavidya-card-header"><i class="fas fa-star"></i> Kamala</div>
+                        <div class="mahavidya-card-content">
+                            <img src="https://picsum.photos/seed/kamala/600/300.jpg" alt="Kamala" class="mahavidya-image">
+                            <div class="mahavidya-description">
+                                <h3>Kamala - The Lotus Goddess</h3>
+                                <p>Kamala is the tenth Mahavidya, representing prosperity, fertility, and purity. She is depicted with a golden complexion, seated or standing on a lotus, with elephants pouring water over her.</p>
+                                <p>She embodies the concept of abundance and the beauty of nature. Kamala is associated with material and spiritual prosperity, teaching her devotees to appreciate the blessings in their lives. She represents the power to attract positive energy and create harmony in all aspects of life.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <div class="gallery-view" id="gallery-view">
+            <div class="section">
+                <div class="section-header"><i class="fas fa-images"></i> Pandal Gallery</div>
+                <div class="section-content">
+                    <div class="gallery-grid" id="gallery-grid"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-view" id="profile-view">
+            <div class="section">
+                <div class="section-header"><i class="fas fa-user-circle"></i> My Profile</div>
+                <div class="section-content profile-content">
+                    <img src="https://i.pravatar.cc/150?u=a042581f4e29026704d" alt="Profile Picture" class="profile-pic" id="userPic">
+                    <h2 class="profile-name" id="userName">Guest User</h2>
+                    <p class="profile-email" id="userEmail">guest.user@pujoplanner.com</p>
+                    <button class="generate-btn profile-btn" id="sign-out-btn">Sign Out</button>
+                </div>
+            </div>
+            <div class="section">
+                <div class="section-header"><i class="fas fa-envelope"></i> Contact Us</div>
+                <div class="section-content">
+                    <p style="margin-bottom: 1rem; color: #666; text-align: center;">Have a suggestion or need help? Send us a message!</p>
+                    <div class="form-group">
+                        <label for="contact-message">Your Message:</label>
+                        <textarea id="contact-message" rows="5" style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 5px; font-family: inherit; font-size: 1rem; resize: vertical;" placeholder="Write your suggestion or query here..."></textarea>
+                    </div>
+                    <button id="send-email-btn" class="generate-btn"><i class="fas fa-paper-plane"></i> Send via Email Client</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="#" class="nav-item active" data-view="plan"><i class="fas fa-home"></i><span>Home</span></a>
+        <a href="#" class="nav-item" data-view="map"><i class="fas fa-map"></i><span>Map</span></a>
+        <a href="#" class="nav-item" data-view="mahavidya"><i class="fas fa-book"></i><span>Mahavidya</span></a>
+        <a href="#" class="nav-item" data-view="gallery"><i class="fas fa-images"></i><span>Gallery</span></a>
+        <a href="#" class="nav-item" data-view="profile"><i class="fas fa-user"></i><span>Profile</span></a>
+    </nav>
+
+    <div id="pandal-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Pandal Name</h2>
+                <span class="close">×</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-gallery" id="modal-gallery"></div>
+                <div class="modal-description">
+                    <h3>About This Pandal</h3>
+                    <p id="modal-description"></p>
+                </div>
+                <div class="modal-details" id="modal-details"></div>
+            </div>
+        </div>
+    </div>
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <img id="lightbox-image" src="" alt="Pandal Image">
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script type="module" src="js/planner.js"></script>
+</body>
+</html>
