@@ -37,6 +37,7 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
+
 if (signOutBtn) {
     signOutBtn.addEventListener('click', () => {
         signOut(auth).then(() => {
