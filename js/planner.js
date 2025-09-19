@@ -24,18 +24,32 @@ const userName = document.getElementById("userName");
 const userEmail = document.getElementById("userEmail");
 const signOutBtn = document.getElementById("sign-out-btn");
 
+// replace the old onAuthStateChanged block with this
 onAuthStateChanged(auth, (user) => {
-    if (user) {
-        // User is signed in.
-        if (userPic) userPic.src = user.photoURL || 'https://i.pravatar.cc/150'; // Fallback image
-        if (userName) userName.textContent = user.displayName || "No Name";
-        if (userEmail) userEmail.textContent = user.email;
+  // helper that safely shows the body once DOM is ready
+  const showBody = () => {
+    try { document.body.style.display = "block"; } catch (e) { /* ignore */ }
+  };
+
+  if (user) {
+    // User signed in -> populate profile fields if present
+    if (userPic) userPic.src = user.photoURL || 'https://i.pravatar.cc/150';
+    if (userName) userName.textContent = user.displayName || "No Name";
+    if (userEmail) userEmail.textContent = user.email;
+
+    // If DOM already loaded, show immediately; otherwise wait for DOMContentLoaded
+    if (document.readyState === "complete" || document.readyState === "interactive") {
+      showBody();
     } else {
-        // User is signed out.
-        // If not logged in, send back to login page
-        window.location.href = "index.html"; // CORRECTED REDIRECT
+      window.addEventListener("DOMContentLoaded", showBody, { once: true });
     }
+  } else {
+    // Not logged in -> redirect to login and keep page hidden
+    // Use replace() so back button won't show the protected page
+    window.location.replace("index.html");
+  }
 });
+
 
 
 if (signOutBtn) {
