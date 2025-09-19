@@ -894,7 +894,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (donateNowBtn) {
         donateNowBtn.addEventListener('click', () => {
-            const razorpayBaseUrl = 'https://razorpay.me/@arunabhabanerjee/';
+            const razorpayBaseUrl = 'https://razorpay.me/@arunabhabanerjee';
             let amount = 0;
 
             const activePreset = document.querySelector('.preset-btn.active');
