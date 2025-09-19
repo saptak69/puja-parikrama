@@ -894,13 +894,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (donateNowBtn) {
         donateNowBtn.addEventListener('click', () => {
-            // !!! CORRECTED LINE HERE !!!
             const razorpayBaseUrl = 'https://razorpay.me/@arunabhabanerjee';
             let amount = 0;
 
             const activePreset = document.querySelector('.preset-btn.active');
             if (activePreset) {
-                amount = activePreset.dataset.amount;
+                amount = parseInt(activePreset.dataset.amount, 10);
             } else if (customAmountInput.value) {
                 const customAmount = parseInt(customAmountInput.value, 10);
                 if (customAmount > 0) {
@@ -909,7 +908,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             if (amount > 0) {
-                const finalUrl = `${razorpayBaseUrl}/${amount}`; // Note the slash is added here now
+                const amountInPaise = amount * 100;
+                const finalUrl = `${razorpayBaseUrl}?amount=${amountInPaise}`;
                 window.open(finalUrl, '_blank');
                 donationModal.classList.remove('active'); // Close modal after action
             } else {
