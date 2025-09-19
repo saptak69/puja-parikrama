@@ -27,9 +27,9 @@ const signOutBtn = document.getElementById("sign-out-btn");
 onAuthStateChanged(auth, (user) => {
     if (user) {
         // User is signed in.
-        userPic.src = user.photoURL || 'https://i.pravatar.cc/150'; // Fallback image
-        userName.textContent = user.displayName || "No Name";
-        userEmail.textContent = user.email;
+        if (userPic) userPic.src = user.photoURL || 'https://i.pravatar.cc/150'; // Fallback image
+        if (userName) userName.textContent = user.displayName || "No Name";
+        if (userEmail) userEmail.textContent = user.email;
     } else {
         // User is signed out.
         // If not logged in, send back to login page
@@ -37,14 +37,16 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
-signOutBtn.addEventListener('click', () => {
-    signOut(auth).then(() => {
-        console.log('User signed out successfully');
-        // The onAuthStateChanged listener will handle the redirect.
-    }).catch((error) => {
-        console.error('Sign out error', error);
+if (signOutBtn) {
+    signOutBtn.addEventListener('click', () => {
+        signOut(auth).then(() => {
+            console.log('User signed out successfully');
+            // The onAuthStateChanged listener will handle the redirect.
+        }).catch((error) => {
+            console.error('Sign out error', error);
+        });
     });
-});
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     const KOLKATA_DIVIDING_LATITUDE = 22.56;
@@ -280,10 +282,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     pandalListElement.addEventListener('click', e => { if (e.target.closest('.add-btn')) handleAddToPlan(e); });
     myPlanListElement.addEventListener('click', e => { if (e.target.closest('.remove-btn')) handleRemoveFromPlan(e); });
-    pdfBtn.addEventListener('click', () => generatePDF(myPlanItinerary, 'my-plan'));
-    suggestedPdfBtn.addEventListener('click', () => generatePDF(currentSuggestedItinerary, 'suggested'));
-    shareBtn.addEventListener('click', () => shareItinerary(myPlanItinerary));
-    suggestedShareBtn.addEventListener('click', () => shareItinerary(currentSuggestedItinerary));
+    pdfBtn && pdfBtn.addEventListener('click', () => generatePDF(myPlanItinerary, 'my-plan'));
+    suggestedPdfBtn && suggestedPdfBtn.addEventListener('click', () => generatePDF(currentSuggestedItinerary, 'suggested'));
+    shareBtn && shareBtn.addEventListener('click', () => shareItinerary(myPlanItinerary));
+    suggestedShareBtn && suggestedShareBtn.addEventListener('click', () => shareItinerary(currentSuggestedItinerary));
     navItems.forEach(item => {
         item.addEventListener('click', (e) => {
             e.preventDefault();
@@ -509,68 +511,151 @@ document.addEventListener('DOMContentLoaded', () => {
         updateMap(myPlanItinerary, true);
     }
 
-    // --- *** NEW/FIXED FUNCTION: generatePDF *** ---
-    function generatePDF(itinerary, type) {
-        if (itinerary.length === 0) {
-            alert("Your plan is empty. Add some pandals to generate a PDF.");
-            return;
-        }
+    // --- *** IMPROVED FUNCTION: generatePDF (html2canvas -> jsPDF image + pagination) *** ---
+    // Requires html2canvas and jspdf to be included in planner.html
+    async function generatePDF(itinerary, type) {
+        try {
+            if (!itinerary || itinerary.length === 0) {
+                alert("Your plan is empty. Add some pandals to generate a PDF.");
+                return;
+            }
 
-        const { jsPDF } = window.jspdf;
-        const doc = new jsPDF();
+            // Build off-screen print container to preserve page styles & fonts
+            const printContainer = document.createElement('div');
+            printContainer.id = 'pdf-print-container';
+            printContainer.style.position = 'fixed';
+            printContainer.style.left = '-9999px';
+            printContainer.style.top = '0';
+            // Use a width that maps nicely to A4 when rendered (we will scale the canvas)
+            printContainer.style.width = '794px';
+            printContainer.style.background = '#ffffff';
+            printContainer.style.color = '#111';
+            printContainer.style.padding = '20px';
+            printContainer.style.boxSizing = 'border-box';
+            printContainer.style.fontFamily = getComputedStyle(document.body).fontFamily || "'Hind Siliguri', sans-serif";
+            printContainer.style.zIndex = '9999';
 
-        const printableContent = document.createElement('div');
-        printableContent.style.position = 'absolute';
-        printableContent.style.left = '-9999px';
-        printableContent.style.width = '700px';
-        printableContent.style.padding = '20px';
-        printableContent.style.fontFamily = 'Arial, sans-serif';
-        printableContent.style.backgroundColor = '#FFF';
-        printableContent.style.color = '#000';
+            // Header content and metadata
+            const dateStr = new Date().toLocaleString('en-US', {
+                weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
+                hour: '2-digit', minute: '2-digit', hour12: true
+            });
 
-        const startPointLabel = document.getElementById('start-point').selectedOptions[0].text;
-        const totalDistance = itinerary.reduce((sum, p) => sum + p.distance, 0).toFixed(1);
-        const totalWalkingTime = itinerary.reduce((sum, p) => sum + p.travelMinutes, 0);
+            // Summaries
+            const startPointLabel = startPointSelect.selectedOptions[0]?.text || '';
+            const totalDistance = itinerary.reduce((s, p) => s + p.distance, 0).toFixed(1);
+            const totalWalkingTime = itinerary.reduce((s, p) => s + p.travelMinutes, 0);
+            const totalVisitTime = itinerary.length * PANDAL_VISIT_DURATION_MINS;
+            const totalTime = totalWalkingTime + totalVisitTime;
 
-        let html = `
-            <h1 style="color: #D32F2F; text-align: center; font-size: 24px;">Pujo Parikrama Itinerary</h1>
-            <p style="text-align: center; margin-bottom: 20px;">Your personalized pandal hopping plan.</p>
-            <div style="border: 1px solid #ddd; padding: 10px; border-radius: 5px; margin-bottom: 20px; text-align: center;">
-                <h3 style="margin: 0; color: #333;">Route Summary</h3>
-                <p><strong>Starting Point:</strong> ${startPointLabel}</p>
-                <p><strong>Total Pandals:</strong> ${itinerary.length} | <strong>Total Walk:</strong> ${totalDistance} km | <strong>Walking Time:</strong> ${totalWalkingTime} min</p>
-            </div>
-        `;
+            let inner = `
+                        <div style="font-family:inherit;">
+                            <div style="text-align:center; margin-bottom:12px;">
+                            <h1 style="margin:0; color:#000000; font-size:28px; font-weight:700;">Pujo Parikrama Itinerary</h1>
+                            <div style="font-size:12px; color:#000000; margin-top:6px;">Generated on ${dateStr}</div>
+                            </div>
 
-        itinerary.forEach((pandal, index) => {
-            html += `
-                <div style="border-bottom: 1px solid #eee; padding: 10px 0; margin-bottom: 10px;">
-                    <h4 style="margin: 0 0 5px 0; color: #D32F2F;">${index + 1}. ${pandal.name}</h4>
-                    <p style="margin: 0 0 5px 0; font-size: 14px;"><strong>Time:</strong> ${formatTime(pandal.arrivalTime)} - ${formatTime(pandal.departureTime)}</p>
-                    <p style="margin: 0; font-size: 14px;"><strong>Distance from previous:</strong> ${pandal.distance.toFixed(1)} km (${pandal.travelMinutes} min walk)</p>
+                            <div style="border:1px solid #000000; padding:12px; border-radius:8px; margin:10px 0; background:#fafafa;">
+                            <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; font-size:13px;">
+                                <div style="color:#000000;"><strong style="color:#000000;">Starting Point:</strong> ${startPointLabel}</div>
+                                <div style="color:#000000;"><strong style="color:#000000;">Total Pandals:</strong> ${itinerary.length}</div>
+                                <div style="color:#000000;"><strong style="color:#000000;">Total Distance:</strong> ${totalDistance} km</div>
+                                <div style="color:#000000;"><strong style="color:#000000;">Total Time:</strong> ${totalTime} min</div>
+                            </div>
+                            </div>
+
+                            <div style="margin-top:12px;">
+                        `;
+
+            itinerary.forEach((p, idx) => {
+                const arrival = formatTime(p.arrivalTime);
+                const departure = formatTime(p.departureTime);
+                const description = p.description ? (p.description.length > 220 ? p.description.slice(0, 220) + '...' : p.description) : '';
+                inner += `
+                  <div style="padding:12px; border-radius:8px; margin-bottom:10px; background:#fff; border:1px solid #eee;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
+                      <div style="font-weight:700; color:#D32F2F; font-size:16px;">${idx+1}. ${p.name}</div>
+                      <div style="font-size:12px; color:#555;">${arrival} — ${departure}</div>
+                    </div>
+                    <div style="margin-top:8px; color:#333; font-size:13px;">${description}</div>
+                    <div style="margin-top:10px; font-size:12px; color:#444;">🚶 ${p.distance.toFixed(1)} km (${p.travelMinutes} min walk)</div>
+                  </div>
+                `;
+            });
+
+            inner += `
+                  </div>
+                  <div style="margin-top:18px; text-align:center; font-size:11px; color:#666;">Generated by Pujo Parikrama Planner</div>
                 </div>
             `;
-        });
 
-        html += `<p style="text-align: center; font-size: 12px; color: #888; margin-top: 20px;">Generated by Pujo Parikrama Planner</p>`;
-        printableContent.innerHTML = html;
-        document.body.appendChild(printableContent);
+            printContainer.innerHTML = inner;
+            document.body.appendChild(printContainer);
 
-        html2canvas(printableContent, { scale: 2 }).then(canvas => {
-            const imgData = canvas.toDataURL('image/png');
-            const imgProps = doc.getImageProperties(imgData);
-            const pdfWidth = doc.internal.pageSize.getWidth();
-            const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+            // Render with html2canvas
+            const scale = 2; // Increase to 3 for crisper output at expense of size
+            const canvas = await html2canvas(printContainer, {
+                scale,
+                useCORS: true,
+                backgroundColor: '#ffffff',
+                allowTaint: false,
+                logging: false
+            });
 
-            doc.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-            doc.save('Pujo-Parikrama-Plan.pdf');
+            // Prepare PDF (A4 portrait mm)
+            const { jsPDF } = window.jspdf;
+            const pdf = new jsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait' });
+            const pdfWidth = pdf.internal.pageSize.getWidth();
+            const pdfHeight = pdf.internal.pageSize.getHeight();
 
-            document.body.removeChild(printableContent);
-        }).catch(err => {
-            console.error("Error generating PDF:", err);
-            alert("Sorry, there was an error creating the PDF.");
-            document.body.removeChild(printableContent);
-        });
+            // Convert canvas to image data
+            const imgData = canvas.toDataURL('image/jpeg', 0.92);
+
+            // Calculate image size in mm keeping aspect ratio and full width
+            const canvasW = canvas.width;
+            const canvasH = canvas.height;
+            const imgWidthMm = pdfWidth;
+            const imgHeightMm = (canvasH * imgWidthMm) / canvasW;
+
+            // If fits in one page, add it; otherwise slice and paginate
+            if (imgHeightMm <= pdfHeight - 10) {
+                pdf.addImage(imgData, 'JPEG', 0, 5, imgWidthMm, imgHeightMm);
+            } else {
+                // Paginate by slicing canvas vertically
+                const pxPerMm = canvasW / imgWidthMm;
+                let renderedHeightMm = 0;
+                let pageIndex = 0;
+                while (renderedHeightMm < imgHeightMm - 0.01) {
+                    const yPx = Math.round(renderedHeightMm * pxPerMm);
+                    const sliceHpx = Math.min(Math.round((pdfHeight - 10) * pxPerMm), canvasH - yPx);
+
+                    const tmpCanvas = document.createElement('canvas');
+                    tmpCanvas.width = canvasW;
+                    tmpCanvas.height = sliceHpx;
+                    const tmpCtx = tmpCanvas.getContext('2d');
+                    tmpCtx.drawImage(canvas, 0, yPx, canvasW, sliceHpx, 0, 0, canvasW, sliceHpx);
+
+                    const sliceData = tmpCanvas.toDataURL('image/jpeg', 0.92);
+                    const sliceHeightMm = (sliceHpx * imgWidthMm) / canvasW;
+
+                    if (pageIndex > 0) pdf.addPage();
+                    pdf.addImage(sliceData, 'JPEG', 0, 5, imgWidthMm, sliceHeightMm);
+
+                    renderedHeightMm += sliceHeightMm;
+                    pageIndex++;
+                }
+            }
+
+            // cleanup DOM
+            document.body.removeChild(printContainer);
+
+            // Save PDF with friendly filename
+            const filename = `Pujo-Parikrama-Plan-${new Date().toISOString().slice(0,10)}.pdf`;
+            pdf.save(filename);
+        } catch (err) {
+            console.error('PDF generation failed:', err);
+            alert('Failed to generate PDF. Check console for details.');
+        }
     }
 
     // --- *** NEW/FIXED FUNCTION: shareItinerary *** ---
@@ -672,8 +757,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const destination = `${itinerary[itinerary.length - 1].lat},${itinerary[itinerary.length - 1].lon}`;
         // Google Maps supports a max of 9 waypoints for walking directions
         const waypoints = itinerary.slice(0, -1).slice(0, 9).map(p => `${p.lat},${p.lon}`).join('|');
-        
-        // Corrected Google Maps URL structure
+
         let url = `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}`;
         if (waypoints) {
             url += `&waypoints=${waypoints}`;
@@ -706,6 +790,33 @@ document.addEventListener('DOMContentLoaded', () => {
         generateBtn.click();
     }
 
+    // --- Animated Donation Button Logic ---
+    const donateButton = document.getElementById('donateBtn');
+    if (donateButton) {
+        // Shake animation
+        const shakeInterval = 5000; // Shake every 5 seconds
+        setInterval(() => {
+            if (!donateButton.matches(':hover')) {
+                donateButton.classList.add('is-animating');
+                setTimeout(() => {
+                    donateButton.classList.remove('is-animating');
+                }, 1300);
+            }
+        }, shakeInterval);
+
+        // Auto-expansion logic
+        const expandInterval = 7000; // Expand every 7 seconds
+        const expandDuration = 2500; // Stay expanded for 2.5 seconds
+        setInterval(() => {
+            if (!donateButton.matches(':hover')) {
+                donateButton.classList.add('is-expanded');
+                setTimeout(() => {
+                    donateButton.classList.remove('is-expanded');
+                }, expandDuration);
+            }
+        }, expandInterval);
+    }
+
     init();
 });
 // ========================================================
@@ -714,27 +825,28 @@ document.addEventListener('DOMContentLoaded', () => {
 const sendEmailBtn = document.getElementById('send-email-btn');
 const contactMessageTextarea = document.getElementById('contact-message');
 
-sendEmailBtn.addEventListener('click', () => {
-    const user = auth.currentUser;
-    const message = contactMessageTextarea.value;
+if (sendEmailBtn) {
+    sendEmailBtn.addEventListener('click', () => {
+        const user = auth.currentUser;
+        const message = contactMessageTextarea ? contactMessageTextarea.value : '';
 
-    if (!user) {
-        alert("You must be logged in to send a message.");
-        return;
-    }
+        if (!user) {
+            alert("You must be logged in to send a message.");
+            return;
+        }
 
-    if (!message.trim()) {
-        alert("Please write a message before sending.");
-        return;
-    }
+        if (!message.trim()) {
+            alert("Please write a message before sending.");
+            return;
+        }
 
-    // !!! IMPORTANT: Change this to your actual support email address !!!
-    const recipientEmail = "arunabhabanerjee5@gmail.com"; 
-    
-    const subject = "Feedback from Pujo Parikrama Planner";
-    
-    // This pre-fills the email body with user details and their message
-    const body = `Hello Support Team,
+        // !!! IMPORTANT: Change this to your actual support email address !!!
+        const recipientEmail = "arunabhabanerjee5@gmail.com"; 
+        
+        const subject = "Feedback from Pujo Parikrama Planner";
+        
+        // This pre-fills the email body with user details and their message
+        const body = `Hello Support Team,
 
 A message has been submitted from the Pujo Parikrama Planner app.
 
@@ -745,11 +857,12 @@ User Email: ${user.email}
 Message:
 ${message}
 `;
-    // This creates and triggers the mailto link
-    const mailtoLink = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    
-    window.location.href = mailtoLink;
+        // This creates and triggers the mailto link
+        const mailtoLink = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        
+        window.location.href = mailtoLink;
 
-    // Optionally, clear the textarea after submission
-    contactMessageTextarea.value = '';
-});
+        // Optionally, clear the textarea after submission
+        if (contactMessageTextarea) contactMessageTextarea.value = '';
+    });
+}

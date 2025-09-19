@@ -5,7 +5,7 @@ const firebaseConfig = {
     apiKey: "AIzaSyADfl-XJ7atFkgJSas2l2ucOvSk4t_9iLY",
     authDomain: "puja-parikrama-10c49.firebaseapp.com",
     projectId: "puja-parikrama-10c49",
-    storageBucket: "puja-parikrama-10c49.appspot.com",
+    storageBucket: "puja-parikrama-10c49.firebasestorage.app",
     messagingSenderId: "158658583532",
     appId: "1:158658583532:web:6f997a14c8814c59b47ec9"
 };
