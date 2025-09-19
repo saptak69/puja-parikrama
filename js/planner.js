@@ -330,9 +330,13 @@ document.addEventListener('DOMContentLoaded', () => {
         updateMap(filteredPandals, false);
     });
     closeModal.addEventListener('click', () => modal.style.display = 'none');
+    
+    // MODIFIED: Added donationModal to the click listener
+    const donationModal = document.getElementById('donation-modal');
     window.addEventListener('click', (e) => {
         if (e.target === modal) modal.style.display = 'none';
         if (e.target === lightbox) lightbox.style.display = 'none';
+        if (e.target === donationModal) donationModal.classList.remove('active');
     });
     
     // NEW CODE START
@@ -853,6 +857,64 @@ document.addEventListener('DOMContentLoaded', () => {
                 }, expandDuration);
             }
         }, expandInterval);
+    }
+    
+    // --- *** NEW *** Razorpay Donation Modal Logic ---
+    const closeDonationModalBtn = document.querySelector('.donation-close-btn');
+    const presetBtns = document.querySelectorAll('.preset-btn');
+    const customAmountInput = document.getElementById('custom-amount-input');
+    const donateNowBtn = document.getElementById('donate-now-btn');
+
+    if (donateButton && donationModal) {
+        donateButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            donationModal.classList.add('active');
+        });
+    }
+
+    if (closeDonationModalBtn) {
+        closeDonationModalBtn.addEventListener('click', () => {
+            donationModal.classList.remove('active');
+        });
+    }
+
+    presetBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            presetBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            customAmountInput.value = ''; // Clear custom input
+        });
+    });
+
+    if (customAmountInput) {
+        customAmountInput.addEventListener('input', () => {
+            presetBtns.forEach(b => b.classList.remove('active')); // Deselect presets
+        });
+    }
+
+    if (donateNowBtn) {
+        donateNowBtn.addEventListener('click', () => {
+            const razorpayBaseUrl = 'https://razorpay.me/@arunabhabanerjee/';
+            let amount = 0;
+
+            const activePreset = document.querySelector('.preset-btn.active');
+            if (activePreset) {
+                amount = activePreset.dataset.amount;
+            } else if (customAmountInput.value) {
+                const customAmount = parseInt(customAmountInput.value, 10);
+                if (customAmount > 0) {
+                    amount = customAmount;
+                }
+            }
+
+            if (amount > 0) {
+                const finalUrl = `${razorpayBaseUrl}${amount}`;
+                window.open(finalUrl, '_blank');
+                donationModal.classList.remove('active'); // Close modal after action
+            } else {
+                alert('Please select a preset amount or enter a valid custom amount.');
+            }
+        });
     }
 
     init();
