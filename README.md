@@ -1,4 +1,4 @@
-# 🎉 Pujo Parikrama Planner
+# 🎉 Puja Parikrama Planner
 
 An interactive web application to plan and experience **Kolkata’s Durga Puja pandal hopping** with **smart route optimization**, **real-time maps**, and **personalized itineraries**.  
 
@@ -71,8 +71,8 @@ Follow these steps to set up the project locally:
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/pujo-parikrama-planner.git
-cd pujo-parikrama-planner
+git clone https://github.com/your-username/puja-parikrama.git
+cd puja-parikrama
 ````
 
 ### 2. Project Structure
@@ -125,7 +125,7 @@ Right click → "Open with Live Server"
 1. Push to GitHub.
 2. Go to **Repo Settings → Pages**.
 3. Select branch `main` and root folder.
-4. Access your site at `https://your-username.github.io/pujo-parikrama-planner/`.
+4. Access your site at `https://your-username.github.io/puja-parikrama/`.
 
 ---
 
