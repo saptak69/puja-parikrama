@@ -278,6 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let mapPolyline = null;
     const mapOverlayContainer = document.getElementById('map-overlay-list-container');
     const mapOverlayList = document.getElementById('map-overlay-list');
+    const gallerySearchInput = document.getElementById('gallery-search-input'); // NEW CODE
 
     // --- EVENT LISTENERS ---
     generateBtn.addEventListener('click', () => {
@@ -333,6 +334,28 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.target === modal) modal.style.display = 'none';
         if (e.target === lightbox) lightbox.style.display = 'none';
     });
+    
+    // NEW CODE START
+    if (gallerySearchInput) {
+        gallerySearchInput.addEventListener('input', () => {
+            const query = gallerySearchInput.value.toLowerCase().trim();
+            const galleryItems = document.querySelectorAll('#gallery-grid .gallery-item');
+
+            galleryItems.forEach(item => {
+                const pandalNameElement = item.querySelector('.gallery-item-info h3');
+                if (pandalNameElement) {
+                    const pandalName = pandalNameElement.textContent.toLowerCase();
+                    // If the pandal name includes the search query, show the item, otherwise hide it.
+                    if (pandalName.includes(query)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                }
+            });
+        });
+    }
+    // NEW CODE END
 
     // =======================================================
     // ============ SEARCH LOGIC (NEW/MODIFIED) ============
