@@ -894,6 +894,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (donateNowBtn) {
         donateNowBtn.addEventListener('click', () => {
+            // !!! CORRECTED LINE HERE !!!
             const razorpayBaseUrl = 'https://razorpay.me/@arunabhabanerjee';
             let amount = 0;
 
@@ -908,7 +909,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             if (amount > 0) {
-                const finalUrl = `${razorpayBaseUrl}${amount}`;
+                const finalUrl = `${razorpayBaseUrl}/${amount}`; // Note the slash is added here now
                 window.open(finalUrl, '_blank');
                 donationModal.classList.remove('active'); // Close modal after action
             } else {
