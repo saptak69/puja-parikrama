@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5GSCD3YYXC"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5GSCD3YYXC"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -149,7 +148,6 @@
   </div>
 
   <div class="mahavidya-section">
-    <!-- 1. Shailaputri -->
     <article class="mahavidya-card">
       <header class="mahavidya-card-header"><h3>1. Shailaputri — Daughter of the Mountains</h3></header>
       <div class="mahavidya-card-content">
@@ -162,7 +160,6 @@
       </div>
     </article>
 
-    <!-- 2. Brahmacharini -->
     <article class="mahavidya-card">
       <header class="mahavidya-card-header"><h3>2. Brahmacharini — The Embodiment of Penance</h3></header>
       <div class="mahavidya-card-content">
@@ -175,7 +172,6 @@
       </div>
     </article>
 
-    <!-- 3. Chandraghanta -->
     <article class="mahavidya-card">
       <header class="mahavidya-card-header"><h3>3. Chandraghanta — Bearer of the Crescent</h3></header>
       <div class="mahavidya-card-content">
@@ -188,7 +184,6 @@
       </div>
     </article>
 
-    <!-- 4. Kushmanda -->
     <article class="mahavidya-card">
       <header class="mahavidya-card-header"><h3>4. Kushmanda — The Cosmic Creator</h3></header>
       <div class="mahavidya-card-content">
@@ -201,7 +196,6 @@
       </div>
     </article>
 
-    <!-- 5. Skandamata -->
     <article class="mahavidya-card">
       <header class="mahavidya-card-header"><h3>5. Skandamata — Mother of Skanda (Kartikeya)</h3></header>
       <div class="mahavidya-card-content">
@@ -214,7 +208,6 @@
       </div>
     </article>
 
-    <!-- 6. Katyayani -->
     <article class="mahavidya-card">
       <header class="mahavidya-card-header"><h3>6. Katyayani — Born of the Sage Katyayana</h3></header>
       <div class="mahavidya-card-content">
@@ -227,7 +220,6 @@
       </div>
     </article>
 
-    <!-- 7. Kalaratri -->
     <article class="mahavidya-card">
       <header class="mahavidya-card-header"><h3>7. Kalaratri — Fierce Destroyer of Darkness</h3></header>
       <div class="mahavidya-card-content">
@@ -240,7 +232,6 @@
       </div>
     </article>
 
-    <!-- 8. Mahagauri -->
     <article class="mahavidya-card">
       <header class="mahavidya-card-header"><h3>8. Mahagauri — Radiant Goddess of Purity</h3></header>
       <div class="mahavidya-card-content">
@@ -253,7 +244,6 @@
       </div>
     </article>
 
-    <!-- 9. Siddhidhatri -->
     <article class="mahavidya-card">
       <header class="mahavidya-card-header"><h3>9. Siddhidhatri — Bestower of Siddhis and Perfection</h3></header>
       <div class="mahavidya-card-content">
@@ -266,7 +256,6 @@
       </div>
     </article>
 
-    <!-- 10. Vijayadashami (closing story) -->
     <article class="mahavidya-card">
       <header class="mahavidya-card-header"><h3>10. Vijayadashami — Triumph of Good Over Evil</h3></header>
       <div class="mahavidya-card-content">
@@ -371,7 +360,7 @@
         <a href="#" class="nav-item" data-view="gallery"><i class="fas fa-image"></i><span>Gallery</span></a>
         <a href="#" class="nav-item" data-view="profile"><i class="fas fa-user"></i><span>Profile</span></a>
       <div class="donation-button-container">
-    <a href="razorpay.me/@arunabhabanerjee" target="_blank" class="donate-btn" id="donateBtn">
+    <a href="javascript:void(0);" class="donate-btn" id="donateBtn">
         <span class="icon fas fa-heart custom-icon-color"></span>
         <span class="text">BUY ME A MISHTI</span>
     </a>
@@ -397,6 +386,24 @@
     <div id="lightbox" class="lightbox">
         <div class="lightbox-content">
             <img id="lightbox-image" src="" alt="Pandal Image">
+        </div>
+    </div>
+    
+    <div id="donation-modal" class="donation-modal">
+        <div class="donation-modal-content">
+            <button class="donation-close-btn">&times;</button>
+            <h3>Support Our Work</h3>
+            <p>Your contribution helps keep this planner running. Thank you!</p>
+            <div class="preset-amounts">
+                <button class="preset-btn" data-amount="21">₹21</button>
+                <button class="preset-btn" data-amount="51">₹51</button>
+                <button class="preset-btn" data-amount="101">₹101</button>
+            </div>
+            <div class="custom-amount">
+                <span>Or enter a custom amount (₹)</span>
+                <input type="number" id="custom-amount-input" placeholder="e.g., 251">
+            </div>
+            <button id="donate-now-btn" class="donate-now-btn">Donate Now</button>
         </div>
     </div>
 
