@@ -393,13 +393,17 @@
         <div class="donation-modal-content">
             <button class="donation-close-btn">×</button>
             <h3>Support Our Work</h3>
-            <p>Your contribution helps keep this planner running. Please select an amount.</p>
+            <p>Your contribution helps keep this planner running. Thank you!</p>
             <div class="preset-amounts">
-                <button class="preset-btn" data-encoded-amount="c9yvgMVo3UALiywjEnuNsQ%3D%3D">₹21</button>
-                <button class="preset-btn" data-encoded-amount="9oVI%2BF1Ke1S3A1yDpcZhrw%3D%3D">₹51</button>
-                <button class="preset-btn" data-encoded-amount="94lwmgDVzuUE%2FUJ%2BJu8PIA%3D%3D">₹101</button>
+                <button class="preset-btn" data-amount="21">₹21</button>
+                <button class="preset-btn" data-amount="51">₹51</button>
+                <button class="preset-btn" data-amount="101">₹101</button>
             </div>
-            <button id="donate-now-btn" class="donate-now-btn">Proceed to Pay</button>
+            <div class="custom-amount">
+                <span>Or enter a custom amount (₹)</span>
+                <input type="number" id="custom-amount-input" placeholder="e.g., 251">
+            </div>
+            <button id="donate-now-btn" class="donate-now-btn">Donate Now</button>
         </div>
     </div>
 
