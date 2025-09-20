@@ -446,7 +446,7 @@ document.addEventListener('DOMContentLoaded', () => {
             let inner = `
                         <div style="font-family:inherit;">
                             <div style="text-align:center; margin-bottom:12px;">
-                            <h1 style="margin:0; color:#000000; font-size:28px; font-weight:700;">Pujo Parikrama Itinerary</h1>
+                            <h1 style="margin:0; color:#000000; font-size:28px; font-weight:700;">Puja Parikrama Itinerary</h1>
                             <div style="font-size:12px; color:#000000; margin-top:6px;">Generated on ${dateStr}</div>
                             </div>
 
