@@ -545,7 +545,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.removeChild(printContainer);
 
             // Save PDF with friendly filename
-            const filename = `Pujo-Parikrama-Plan-${new Date().toISOString().slice(0,10)}.pdf`;
+            const filename = `Puja-Parikrama-Plan-${new Date().toISOString().slice(0,10)}.pdf`;
             pdf.save(filename);
         } catch (err) {
             console.error('PDF generation failed:', err);
