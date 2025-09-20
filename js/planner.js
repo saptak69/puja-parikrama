@@ -563,7 +563,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const startPointLabel = document.getElementById('start-point').selectedOptions[0].text;
         const gmapsUrl = generateGoogleMapsUrl(itinerary);
 
-        let shareText = `🎉 *My Pujo Parikrama Plan!* 🎉\n\n`;
+        let shareText = `🎉 *My Puja Parikrama Plan!* 🎉\n\n`;
         shareText += `*Starting From:* ${startPointLabel}\n\n`;
 
         itinerary.forEach((pandal, index) => {
@@ -573,11 +573,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const totalDistance = itinerary.reduce((sum, p) => sum + p.distance, 0).toFixed(1);
         shareText += `\n*Total Pandals:* ${itinerary.length}\n*Total Walking:* ~${totalDistance} km\n\n`;
         shareText += `*Google Maps Route:*\n${gmapsUrl}\n\n`;
-        shareText += `Shared from Pujo Parikrama Planner!`;
+        shareText += `Shared from Puja Parikrama Planner!`;
 
         if (navigator.share) {
             navigator.share({
-                title: 'My Pujo Parikrama Plan',
+                title: 'My Puja Parikrama Plan',
                 text: shareText,
             })
             .catch((error) => console.log('Error sharing', error));
@@ -797,12 +797,12 @@ if (sendEmailBtn) {
         // !!! IMPORTANT: Change this to your actual support email address !!!
         const recipientEmail = "arunabhabanerjee5@gmail.com"; 
         
-        const subject = "Feedback from Pujo Parikrama Planner";
+        const subject = "Feedback from Puja Parikrama Planner";
         
         // This pre-fills the email body with user details and their message
         const body = `Hello Support Team,
 
-A message has been submitted from the Pujo Parikrama Planner app.
+A message has been submitted from the Puja Parikrama Planner app.
 
 User Name: ${user.displayName || 'N/A'}
 User Email: ${user.email}
