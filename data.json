@@ -1,142 +1,1321 @@
 {
   "corePandals": [
-    {"name":"Sinthee More", "lat":22.6267, "lon":88.3849, "description":"A key starting point in the northern part of the city."},
-    {"name":"Dum Dum Metro", "lat":22.6247, "lon":88.4023, "description":"A major metro station and starting hub for North Kolkata."},
-    {"name":"Dakhinpara Sarbojanin", "lat":22.6201, "lon":88.4015, "description":"A local puja near Dum Dum."},
-    {"name":"Jawpur Bayam Samiti", "lat":22.6178, "lon":88.4123, "description":"A local community puja near Dum Dum."},
-    {"name":"Dum Dum Park Tarun Dal", "lat":22.6145, "lon":88.4102, "description":"A consistent award winner in the Dum Dum area."},
-    {"name":"Tala Prottoye", "lat":22.6135, "lon":88.3755, "description":"Famous for its innovative and artistic themes."},
-    {"name":"Dum Dum Park Jubak Brinda", "lat":22.6133, "lon":88.4045, "description":"A youth club's puja in Dum Dum Park."},
-    {"name":"Tala Ponero (15) Pally", "lat":22.6125, "lon":88.3741, "description":"A community puja in the Tala area."},
-    {"name":"Dum Dum Park Sarbojonin", "lat":22.6121, "lon":88.4085, "description":"A community puja in the Dum Dum Park area."},
-    {"name":"Tala Barowari", "lat":22.6111, "lon":88.3728, "description":"One of the oldest community pujas in Kolkata."},
-    {"name":"Dum Dum Park Tarun Sangha", "lat":22.6105, "lon":88.4069, "description":"A consistent award-winner known for innovative themes and artistic idol creations."},
-    {"name":"Belgachia Sadharon Durga Puja", "lat":22.6098, "lon":88.3833, "description":"A large public puja in Belgachia."},
-    {"name":"Dum Dum Park Bharat Chakra", "lat":22.6083, "lon":88.4025, "description":"Known for its innovative themes and artistic brilliance."},
-    {"name":"Dakshin Dari", "lat":22.6055, "lon":88.4031, "description":"A notable puja near VIP Road."},
-    {"name":"Bagbazar Sarbojanin", "lat":22.6033, "lon":88.3683, "description":"One of the oldest (~100 years) and most traditional pujas, famed for its classic idol."},
-    {"name":"Basak Bagan", "lat":22.6025, "lon":88.3985, "description":"A neighbourhood puja near Patipukur."},
-    {"name":"Lake Town Netaji Sporting", "lat":22.6012, "lon":88.4078, "description":"A popular puja near Lake Town."},
-    {"name":"Kumortuli Sarbojanin", "lat":22.6008, "lon":88.3685, "description":"A highly artistic puja in the idol-makers' locality."},
-    {"name":"Kumartuli Park", "lat":22.6001, "lon":88.3692, "description":"Located in the potters' district, it's known for its highly artistic and traditional approach."},
-    {"name":"Kalindi Housing", "lat":22.5999, "lon":88.4011, "description":"A housing estate's puja near Lake Town."},
-    {"name":"Shyambazar 5 Point", "lat":22.5990, "lon":88.3737, "description":"The iconic starting point for North Kolkata pandal hopping."},
-    {"name":"Golaghata Sarbojanin", "lat":22.5991, "lon":88.3953, "description":"A well-attended puja near Ultadanga."},
-    {"name":"Shyambazar Nabin Pally", "lat":22.5982, "lon":88.3751, "description":"A community puja near Shyambazar."},
-    {"name":"Sovabazar Rajbari", "lat":22.5978, "lon":88.3665, "description":"One of the oldest household pujas, open to the public."},
-    {"name":"Sreebhumi Sporting Club", "lat":22.5977, "lon":88.4098, "description":"Extremely famous for its grand themes, often replicating world monuments."},
-    {"name":"Chaltabagan Lohapatti", "lat":22.5975, "lon":88.3735, "description":"A multiple award-winning puja in Manicktala, known for its artistic excellence."},
-    {"name":"Lake Town Adhibasi Brinda", "lat":22.5970, "lon":88.4055, "description":"Consistently wins awards for its unique themes and beautiful execution."},
-    {"name":"Hatibagan Sarbojanin", "lat":22.5969, "lon":88.3734, "description":"One of the most famous pujas in North Kolkata."},
-    {"name":"Beniatola Sarbojanin", "lat":22.5965, "lon":88.3645, "description":"One of the old pujas of North Kolkata."},
-    {"name":"Lake Town Association", "lat":22.5955, "lon":88.4042, "description":"A local association's puja in Lake Town."},
-    {"name":"Sovabazar Metro", "lat":22.5954, "lon":88.3671, "description":"A key metro station for accessing North Kolkata pujas."},
-    {"name":"Ultandanga Sangrami", "lat":22.5948, "lon":88.3912, "description":"A local club's puja in Ultadanga."},
-    {"name":"Telengabagan Sarbojanin", "lat":22.5945, "lon":88.3783, "description":"Celebrated for its immersive themes and high-quality craftsmanship."},
-    {"name":"Hatibagan Crossing", "lat":22.5945, "lon":88.3722, "description":"A busy intersection and hub for North Kolkata pujas."},
-    {"name":"Kashi Bose Lane Durga Puja", "lat":22.5943, "lon":88.3718, "description":"Renowned for its traditional artistic style and community feel."},
-    {"name":"Ahiritola Jubak Brinda", "lat":22.5942, "lon":88.3625, "description":"A youth club's puja in the Ahiritola area."},
-    {"name":"Ahiritola", "lat":22.5936, "lon":88.3639, "description":"A famous and old traditional puja."},
-    {"name":"Ahiritola Sarbojanin", "lat":22.5936, "lon":88.3639, "description":"A famous and old traditional puja in North Kolkata."},
-    {"name":"Ultadanga", "lat":22.5936, "lon":88.3892, "description":"A major transit point connecting North Kolkata and Salt Lake."},
-    {"name":"Jagat Mukherjee Park", "lat":22.5925, "lon":88.3701, "description":"A beautiful puja held in a park setting."},
-    {"name":"AH Block", "lat":22.5923, "lon":88.4167, "description":"A popular residential block puja in Salt Lake."},
-    {"name":"Ultandanga Pallysree", "lat":22.5915, "lon":88.3871, "description":"A popular community puja in Ultadanga."},
-    {"name":"Bayan Samity Lala Bagan", "lat":22.5912, "lon":88.3845, "description":"A local puja in the Maniktala area."},
-    {"name":"Bedon Street", "lat":22.5911, "lon":88.3695, "description":"A community puja in the Beadon Street area."},
-    {"name":"Chorebagan Sarbojanin", "lat":22.5891, "lon":88.3642, "description":"A famous puja in a historic North Kolkata locality."},
-    {"name":"AE Part 1 Block", "lat":22.5891, "lon":88.4145, "description":"A prominent block puja in Salt Lake."},
-    {"name":"Nalin Sarkar Street", "lat":22.5898, "lon":88.3715, "description":"A highly reputed puja, famous for its unique and artistic idols."},
-    {"name":"Pathuriaghata", "lat":22.5899, "lon":88.3615, "description":"A notable puja in a historic neighbourhood."},
-    {"name":"Vivekananda Sporting", "lat":22.5888, "lon":88.3805, "description":"A well-known club's puja in Maniktala."},
-    {"name":"BJ Block, Salt Lake", "lat":22.5879, "lon":88.4118, "description":"Another major attraction in Salt Lake, consistently praised for its creativity."},
-    {"name":"Darpanarayan Street", "lat":22.5878, "lon":88.3601, "description":"A local street's community puja."},
-    {"name":"Maniktala Crossing", "lat":22.5866, "lon":88.3789, "description":"A central point in Maniktala, surrounded by pujas."},
-    {"name":"Girish Park Metro", "lat":22.5861, "lon":88.3656, "description":"Metro station providing access to many North Kolkata pujas."},
-    {"name":"Kankurgachi Yubak Brinda", "lat":22.5855, "lon":88.3948, "description":"A major puja attraction in Kankurgachi."},
-    {"name":"Karunamoyee, Salt Lake", "lat":22.5851, "lon":88.4150, "description":"A central location in Salt Lake, close to several big pujas."},
-    {"name":"Shimla Street", "lat":22.5831, "lon":88.3682, "description":"Known for its artistic pandals in North Kolkata."},
-    {"name":"FD Block, Salt Lake", "lat":22.5824, "lon":88.4121, "description":"One of the biggest and most popular pujas in Salt Lake."},
-    {"name":"Kankurgachi Mitali Sangha", "lat":22.5819, "lon":88.3916, "description":"A well-known puja in the Kankurgachi area, often featuring beautiful designs."},
-    {"name":"Mohammad Ali Park", "lat":22.5780, "lon":88.3601, "description":"A major crowd-puller in Central Kolkata, known for its magnificent architecture."},
-    {"name":"Green Park Recreational Club", "lat":22.5755, "lon":88.4188, "description":"A club-based puja in Salt Lake."},
-    {"name":"Pragati Pally", "lat":22.5731, "lon":88.4201, "description":"A community puja in the Salt Lake area."},
-    {"name":"College Square", "lat":22.5714, "lon":88.3619, "description":"Legendary for its stunning pandal and idol reflection in the adjacent lake."},
-    {"name":"Santosh Mitra Square", "lat":22.5702, "lon":88.3571, "description":"Located in the Bowbazar area, famous for its grand and often surprising themes."},
-    {"name":"Beleghata 33 Pally", "lat":22.5698, "lon":88.3921, "description":"A prominent puja in the Beleghata area."},
-    {"name":"Sealdah Station", "lat":22.5645, "lon":88.3711, "description":"A major railway station, a gateway for pandal hoppers."},
-    {"name":"Esplanade Metro", "lat":22.5639, "lon":88.3524, "description":"The heart of the city, a central hub for all directions."},
-    {"name":"Park Circus 7 Point", "lat":22.5408, "lon":88.3701, "description":"A major connector between central, south, and east Kolkata."},
-    {"name":"25 Pally", "lat":22.5388, "lon":88.3211, "description":"A community puja in the Khidirpur area."},
-    {"name":"Nabarag", "lat":22.5401, "lon":88.3245, "description":"A notable puja in Khidirpur."},
-    {"name":"Yubak Sangha", "lat":22.5376, "lon":88.3283, "description":"A youth club's puja in Khidirpur."},
-    {"name":"75 Pally", "lat":22.5361, "lon":88.3228, "description":"A popular local puja in Khidirpur."},
-    {"name":"Pally Sharadiya", "lat":22.5352, "lon":88.3265, "description":"A known puja celebration in Khidirpur."},
-    {"name":"Abasar Sarbojanin", "lat":22.5344, "lon":88.3488, "description":"A community celebration in Bhawanipore."},
-    {"name":"Kabhi Tirtha Yuba Gosthi", "lat":22.5342, "lon":88.3299, "description":"A local community puja in Khidirpur."},
-    {"name":"Bhawanipore Rupchand", "lat":22.5312, "lon":88.3458, "description":"A local puja in the Bhawanipore area."},
-    {"name":"Maddox Square", "lat":22.5288, "lon":88.3565, "description":"Legendary for its relaxed, 'adda' atmosphere and traditional feel."},
-    {"name":"Jatin Das Park", "lat":22.5285, "lon":88.3511, "description":"A prominent puja held near Jatin Das Park metro."},
-    {"name":"Ballygunge Phari", "lat":22.5286, "lon":88.3653, "description":"A key junction near many famous South Kolkata pujas."},
-    {"name":"Ballygunge Cultural Association", "lat":22.5273, "lon":88.3605, "description":"A prestigious and old puja known for its traditional and cultural elegance."},
-    {"name":"Samaj Sebi Sangha", "lat":22.5255, "lon":88.3615, "description":"Often highlights strong social messages through its theme and artwork."},
-    {"name":"Alipore Sarbojanin", "lat":22.5250, "lon":88.3361, "description":"A major puja in the Alipore area."},
-    {"name":"Deshapriya Park", "lat":22.5242, "lon":88.3551, "description":"Hosts one of the most widely visited pujas, often with grand-scale themes."},
-    {"name":"Hazra Park", "lat":22.5241, "lon":88.3485, "description":"A famous puja near the busy Hazra crossing."},
-    {"name":"Singhi Park", "lat":22.5228, "lon":88.3633, "description":"An old and prestigious puja with a traditional idol."},
-    {"name":"Alipur 78 Pally", "lat":22.5224, "lon":88.3323, "description":"A popular local puja in Alipore."},
-    {"name":"Tridhara Sammilani", "lat":22.5222, "lon":88.3569, "description":"Famous for its massive, innovative, and often abstract structures."},
-    {"name":"Hazra More", "lat":22.5218, "lon":88.3496, "description":"A bustling intersection, gateway to many South Kolkata pujas."},
-    {"name":"Falguni Sangha", "lat":22.5215, "lon":88.3689, "description":"A community puja in the Gariahat area."},
-    {"name":"Kalighat Milon Sangha", "lat":22.5205, "lon":88.3421, "description":"A well-known puja in the Kalighat area."},
-    {"name":"Gariahat Junction", "lat":22.5204, "lon":88.3672, "description":"A prime starting point for South Kolkata pandal hopping."},
-    {"name":"Kalighat Metro", "lat":22.5202, "lon":88.3453, "description":"Metro station right next to the famous Kalighat temple."},
-    {"name":"Hindustan Park Sarbojanin", "lat":22.5194, "lon":88.3601, "description":"Known for its highly artistic and thematic approaches to the pandal and idol."},
-    {"name":"Ekdalia Evergreen Club", "lat":22.5186, "lon":88.3664, "description":"Known for its stunning, massive lighting installations and traditional idols."},
-    {"name":"Akal Bodhan", "lat":22.5183, "lon":88.3352, "description":"A famous and traditional puja in Chetla."},
-    {"name":"Shib Mandir Sarbojanin", "lat":22.5173, "lon":88.3537, "description":"A very popular puja near the Lake Market area, consistently drawing large crowds."},
-    {"name":"Rashbehari Crossing", "lat":22.5173, "lon":88.3537, "description":"A central point connecting Gariahat, Kalighat, and Tollygunge."},
-    {"name":"Chotuskon Park", "lat":22.5155, "lon":88.3575, "description":"A local puja in the Bhowanipore area."},
-    {"name":"Hindustan Club", "lat":22.5152, "lon":88.3626, "description":"Located in Gariahat, this puja is known for its unique themes and idols."},
-    {"name":"Chetla Agrani Club", "lat":22.5144, "lon":88.3373, "description":"A top contender for awards, known for its deep, thought-provoking themes."},
-    {"name":"Kasba Golpark", "lat":22.5142, "lon":88.3845, "description":"A starting point for pujas around the Kasba area."},
-    {"name":"Nepal Bhattacharya Street", "lat":22.5135, "lon":88.3455, "description":"A local street's community puja."},
-    {"name":"Mudiali Club", "lat":22.5129, "lon":88.3484, "description":"An old and famous puja known for its traditional charm and beautiful lighting."},
-    {"name":"Bosepukur Sitala Mandir", "lat":22.5126, "lon":88.3712, "description":"Often comes up with unique rural or folk art themes, winning many awards."},
-    {"name":"66 Pally", "lat":22.5119, "lon":88.3508, "description":"A famous puja near Rashbehari Avenue, known for its unique themes."},
-    {"name":"Vivekanda Park Athletic Club", "lat":22.5118, "lon":88.3644, "description":"A well-known puja near the Southern Avenue area."},
-    {"name":"Badamtala Ashar Sangha", "lat":22.5112, "lon":88.3411, "description":"A consistent award-winner, famous for its creative and artistic themes."},
-    {"name":"Ruby Hospital", "lat":22.5132, "lon":88.4043, "description":"A landmark on the EM Bypass, gateway to pujas in East Kolkata."},
-    {"name":"Selimpur Pally", "lat":22.5085, "lon":88.3655, "description":"Celebrated for its creative use of materials and intricate craftsmanship."},
-    {"name":"Lake Youth Corner", "lat":22.5081, "lon":88.3495, "description":"A popular puja near the Tollygunge lakes."},
-    {"name":"95 Pally Jodhpur Park", "lat":22.5078, "lon":88.3671, "description":"A very famous and grand puja in Jodhpur Park."},
-    {"name":"Babubagan Sarbojonin", "lat":22.5065, "lon":88.3633, "description":"A major attraction near Dhakuria."},
-    {"name":"Jodhpur Park Saradiya Utsab", "lat":22.5063, "lon":88.3692, "description":"A huge and popular puja in South Kolkata, known for its grand scale."},
-    {"name":"Taratala More", "lat":22.5063, "lon":88.3242, "description":"A key intersection for Behala and the port area."},
-    {"name":"Buro Shibatala", "lat":22.5055, "lon":88.3301, "description":"An old and respected puja near New Alipore."},
-    {"name":"Buroshivtala Durga Utsab", "lat":22.5055, "lon":88.3301, "description":"A traditional puja in the New Alipore area."},
-    {"name":"Santoshpur Lakepally", "lat":22.5049, "lon":88.3912, "description":"Famous for its beautiful pandal by the lake."},
-    {"name":"Debdaru Park", "lat":22.5042, "lon":88.3268, "description":"A well-known celebration in Behala."},
-    {"name":"Suruchi Sangha", "lat":22.5029, "lon":88.3621, "description":"Presents a different Indian state's culture each year. A major crowd-puller."},
-    {"name":"Santoshpur Avenue", "lat":22.5011, "lon":88.3902, "description":"A major puja on the Santoshpur Avenue."},
-    {"name":"Behala Notun Dal", "lat":22.5001, "lon":88.3223, "description":"Another major puja in Behala, known for its innovative concepts."},
-    {"name":"Trikon Park", "lat":22.4999, "lon":88.3865, "description":"A popular puja in the Santoshpur area."},
-    {"name":"Behala Friends Club", "lat":22.4975, "lon":88.3195, "description":"A popular puja in the Behala area."},
-    {"name":"Tollygunge Metro", "lat":22.4975, "lon":88.3444, "description":"A key metro station for accessing South Kolkata and Tollygunge pujas."},
-    {"name":"Jadavpur 8B Stand", "lat":22.4970, "lon":88.3694, "description":"A central hub for Jadavpur area pujas."},
-    {"name":"Behala Shree Sangha", "lat":22.4958, "lon":88.3231, "description":"A prominent puja in Behala."},
-    {"name":"Pally Mangal Samity", "lat":22.4912, "lon":88.3667, "description":"A respected community puja in Jadavpur."},
-    {"name":"Behala Chowrasta", "lat":22.4916, "lon":88.3151, "description":"The main intersection in Behala, surrounded by famous pujas."},
-    {"name":"Barisha Club", "lat":22.4883, "lon":88.3115, "description":"Located in Behala, it gained fame for its powerful and viral social themes."},
-    {"name":"41 Pally", "lat":22.4866, "lon":88.3355, "description":"A well-known club puja in Haridevpur."},
-    {"name":"Ajeyo Sanghati", "lat":22.4845, "lon":88.3321, "description":"A major crowd-puller in Haridevpur."},
-    {"name":"Haridevpur Adarsha Samiti", "lat":22.4821, "lon":88.3299, "description":"Known for its creativity and drawing huge crowds in the Tollygunge area."},
-    {"name":"Nabadurga", "lat":22.4795, "lon":88.3675, "description":"A popular puja near Naktala."},
-    {"name":"Naktala Udayan Sangha", "lat":22.4777, "lon":88.3697, "description":"Famous for its artistic brilliance, compelling social themes, and beautiful idols."},
-    {"name":"Panchadurga", "lat":22.4759, "lon":88.3712, "description":"A local celebration in the Naktala area."},
-    {"name":"Kavi Subhash Metro", "lat":22.4695, "lon":88.4024, "description":"Southernmost metro station, access point for Garia and Naktala pujas."},
-    {"name":"Thakurpukur SB Park", "lat":22.4648, "lon":88.3065, "description":"A prominent puja on the southern outskirts, famous for its grand pandals."},
-    {"name":"SBI Park", "lat":22.4648, "lon":88.3065, "description":"Another name for the famous Thakurpukur SB Park puja."}
+    {
+      "name": "Naktala Udayan Sangha",
+      "lat": 22.4777,
+      "lon": 88.3697,
+      "description": "Famous for its artistic brilliance, compelling social themes, and beautiful idols.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Barisha Club",
+      "lat": 22.4883,
+      "lon": 88.3115,
+      "description": "Located in Behala, it gained fame for its powerful and viral social themes.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Behala Notun Dal",
+      "lat": 22.5001,
+      "lon": 88.3223,
+      "description": "Another major puja in Behala, known for its innovative concepts.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Suruchi Sangha",
+      "lat": 22.5063,
+      "lon": 88.3323,
+      "description": "Presents a different Indian state's culture each year. A major crowd-puller in New Alipore.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Santoshpur Lakepally",
+      "lat": 22.5049,
+      "lon": 88.3912,
+      "description": "Famous for its beautiful pandal by the lake.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Jodhpur Park Saradiya Utsab",
+      "lat": 22.5063,
+      "lon": 88.3692,
+      "description": "A huge and popular puja in South Kolkata, known for its grand scale.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Babubagan Sarbojonin",
+      "lat": 22.5065,
+      "lon": 88.3633,
+      "description": "A major attraction near Dhakuria.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "95 Pally Jodhpur Park",
+      "lat": 22.5078,
+      "lon": 88.3671,
+      "description": "A very famous and grand puja in Jodhpur Park.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Selimpur Pally",
+      "lat": 22.5085,
+      "lon": 88.3655,
+      "description": "Celebrated for its creative use of materials and intricate craftsmanship.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Badamtala Ashar Sangha",
+      "lat": 22.5112,
+      "lon": 88.3411,
+      "description": "A consistent award-winner, famous for its creative and artistic themes.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Bosepukur Sitala Mandir",
+      "lat": 22.5126,
+      "lon": 88.3712,
+      "description": "Often comes up with unique rural or folk art themes, winning many awards.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Mudiali Club",
+      "lat": 22.5129,
+      "lon": 88.3484,
+      "description": "An old and famous puja known for its traditional charm and beautiful lighting.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Chetla Agrani Club",
+      "lat": 22.5144,
+      "lon": 88.3373,
+      "description": "A top contender for awards, known for its deep, thought-provoking themes.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Shib Mandir Sarbojanin",
+      "lat": 22.5173,
+      "lon": 88.3537,
+      "description": "A very popular puja near the Lake Market area, consistently drawing large crowds.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Ekdalia Evergreen Club",
+      "lat": 22.5186,
+      "lon": 88.3664,
+      "description": "Known for its stunning, massive lighting installations and traditional idols.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Hindustan Park Sarbojanin",
+      "lat": 22.5194,
+      "lon": 88.3601,
+      "description": "Known for its highly artistic and thematic approaches to the pandal and idol.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Tridhara Sammilani",
+      "lat": 22.5222,
+      "lon": 88.3569,
+      "description": "Famous for its massive, innovative, and often abstract structures.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Singhi Park",
+      "lat": 22.5228,
+      "lon": 88.3633,
+      "description": "An old and prestigious puja with a traditional idol.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Deshapriya Park",
+      "lat": 22.5242,
+      "lon": 88.3551,
+      "description": "Hosts one of the most widely visited pujas, often with grand-scale themes.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Samaj Sebi Sangha",
+      "lat": 22.5255,
+      "lon": 88.3615,
+      "description": "Often highlights strong social messages through its theme and artwork.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Ballygunge Cultural Association",
+      "lat": 22.5273,
+      "lon": 88.3605,
+      "description": "A prestigious and old puja known for its traditional and cultural elegance.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Maddox Square",
+      "lat": 22.5288,
+      "lon": 88.3565,
+      "description": "Legendary for its relaxed, 'adda' atmosphere and traditional feel.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Beleghata 33 Pally",
+      "lat": 22.5701,
+      "lon": 88.392,
+      "description": "A prominent puja in the Beleghata area.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Santosh Mitra Square",
+      "lat": 22.5702,
+      "lon": 88.3571,
+      "description": "Located in the Bowbazar area, famous for its grand and often surprising themes.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "College Square",
+      "lat": 22.5714,
+      "lon": 88.3619,
+      "description": "Legendary for its stunning pandal and idol reflection in the adjacent lake.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Mohammad Ali Park",
+      "lat": 22.578,
+      "lon": 88.3601,
+      "description": "A major crowd-puller in Central Kolkata, known for its magnificent architecture.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Kankurgachi Mitali Sangha",
+      "lat": 22.5819,
+      "lon": 88.3916,
+      "description": "A well-known puja in the Kankurgachi area, often featuring beautiful designs.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Simla Byayam Samity",
+      "lat": 22.5831,
+      "lon": 88.3682,
+      "description": "Famous puja on Shimla Street, known for its artistic pandals in North Kolkata.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Kankurgachi Yubak Brinda",
+      "lat": 22.5855,
+      "lon": 88.3948,
+      "description": "A major puja attraction in Kankurgachi.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Vivekananda Sporting",
+      "lat": 22.5888,
+      "lon": 88.3805,
+      "description": "A well-known club's puja in Maniktala.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Chorebagan Sarbojanin",
+      "lat": 22.5896,
+      "lon": 88.3641,
+      "description": "A famous puja in a historic North Kolkata locality.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Nalin Sarkar Street",
+      "lat": 22.5898,
+      "lon": 88.3715,
+      "description": "A highly reputed puja, famous for its unique and artistic idols.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Pathuriaghata Pancher Palli",
+      "lat": 22.5899,
+      "lon": 88.3615,
+      "description": "A notable puja in a historic neighbourhood.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Bedon Street",
+      "lat": 22.5911,
+      "lon": 88.3695,
+      "description": "A community puja in the Beadon Street area.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Bayan Samity Lala Bagan",
+      "lat": 22.5913,
+      "lon": 88.3846,
+      "description": "A local puja in the Maniktala area.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Ultandanga Pallysree",
+      "lat": 22.5915,
+      "lon": 88.3871,
+      "description": "A popular community puja in Ultadanga.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Jagat Mukherjee Park",
+      "lat": 22.5925,
+      "lon": 88.3701,
+      "description": "A beautiful puja held in a park setting.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Ahiritola Sarbojanin",
+      "lat": 22.5936,
+      "lon": 88.3639,
+      "description": "A famous and old traditional puja in North Kolkata.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Ahiritola Jubak Brinda",
+      "lat": 22.5942,
+      "lon": 88.3625,
+      "description": "A youth club's puja in the Ahiritola area.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Kashi Bose Lane Durga Puja",
+      "lat": 22.5943,
+      "lon": 88.3718,
+      "description": "Renowned for its traditional artistic style and community feel.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Telengabagan Sarbojanin",
+      "lat": 22.5945,
+      "lon": 88.3783,
+      "description": "Celebrated for its immersive themes and high-quality craftsmanship.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Ultandanga Sangrami",
+      "lat": 22.5948,
+      "lon": 88.3912,
+      "description": "A local club's puja in Ultadanga.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Beniatola Sarbojanin",
+      "lat": 22.5965,
+      "lon": 88.3645,
+      "description": "One of the old pujas of North Kolkata.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Hatibagan Sarbojanin",
+      "lat": 22.5969,
+      "lon": 88.3734,
+      "description": "One of the most famous pujas in North Kolkata.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Manicktala Chaltabagan Lohapatty",
+      "lat": 22.5858,
+      "lon": 88.3768,
+      "description": "A multiple award-winning puja in Manicktala, known for its artistic excellence.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Shyambazar Nabin Pally",
+      "lat": 22.5982,
+      "lon": 88.3751,
+      "description": "A community puja near Shyambazar.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Golaghata Sarbojanin",
+      "lat": 22.5989,
+      "lon": 88.3951,
+      "description": "A well-attended puja near Ultadanga.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Kumartuli Park",
+      "lat": 22.6001,
+      "lon": 88.3692,
+      "description": "Located in the potters' district, it's known for its highly artistic and traditional approach.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Kumortuli Sarbojanin",
+      "lat": 22.6008,
+      "lon": 88.3685,
+      "description": "A highly artistic puja in the idol-makers' locality.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Basak Bagan",
+      "lat": 22.6025,
+      "lon": 88.3985,
+      "description": "A neighbourhood puja near Patipukur.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Bagbazar Sarbojanin",
+      "lat": 22.6033,
+      "lon": 88.3683,
+      "description": "One of the oldest (~100 years) and most traditional pujas, famed for its classic idol.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Belgachia Sadharon Durga Puja",
+      "lat": 22.6098,
+      "lon": 88.3833,
+      "description": "A large public puja in Belgachia.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Tala Barowari",
+      "lat": 22.6111,
+      "lon": 88.3728,
+      "description": "One of the oldest community pujas in Kolkata.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Tala Ponero (15) Pally",
+      "lat": 22.6125,
+      "lon": 88.3741,
+      "description": "A community puja in the Tala area.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Tala Prottoye",
+      "lat": 22.6135,
+      "lon": 88.3755,
+      "description": "Famous for its innovative and artistic themes.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Sreebhumi Sporting Club",
+      "lat": 22.5977,
+      "lon": 88.4098,
+      "description": "Extremely famous for its grand themes, often replicating world monuments.",
+      "district": "North 24 Parganas"
+    },
+    {
+      "name": "Shapoorji Shukhobrishti Durga Pujo",
+      "lat": 22.57,
+      "lon": 88.51,
+      "description": "One of the largest township pujas in New Town, known for grand themes and a massive fair.",
+      "district": "North 24 Parganas"
+    },
+    {
+      "name": "FD Block, Salt Lake",
+      "lat": 22.5824,
+      "lon": 88.4121,
+      "description": "One of the biggest and most popular pujas in Salt Lake.",
+      "district": "North 24 Parganas"
+    },
+    {
+      "name": "BJ Block, Salt Lake",
+      "lat": 22.5879,
+      "lon": 88.4118,
+      "description": "Another major attraction in Salt Lake, consistently praised for its creativity.",
+      "district": "North 24 Parganas"
+    },
+    {
+      "name": "AE Part 1 Block, Salt Lake",
+      "lat": 22.5891,
+      "lon": 88.4145,
+      "description": "A prominent block puja in Salt Lake.",
+      "district": "North 24 Parganas"
+    },
+    {
+      "name": "AH Block, Salt Lake",
+      "lat": 22.5923,
+      "lon": 88.4167,
+      "description": "A popular residential block puja in Salt Lake.",
+      "district": "North 24 Parganas"
+    },
+    {
+      "name": "Lake Town Association",
+      "lat": 22.5955,
+      "lon": 88.4042,
+      "description": "A local association's puja in Lake Town.",
+      "district": "North 24 Parganas"
+    },
+    {
+      "name": "Lake Town Adhibasi Brinda",
+      "lat": 22.597,
+      "lon": 88.4055,
+      "description": "Consistently wins awards for its unique themes and beautiful execution.",
+      "district": "North 24 Parganas"
+    },
+    {
+      "name": "Kalindi Housing",
+      "lat": 22.5999,
+      "lon": 88.4011,
+      "description": "A housing estate's puja near Lake Town.",
+      "district": "North 24 Parganas"
+    },
+    {
+      "name": "Lake Town Netaji Sporting",
+      "lat": 22.6012,
+      "lon": 88.4078,
+      "description": "A popular puja near Lake Town.",
+      "district": "North 24 Parganas"
+    },
+    {
+      "name": "Dakshin Dari",
+      "lat": 22.6055,
+      "lon": 88.4031,
+      "description": "A notable puja near VIP Road.",
+      "district": "North 24 Parganas"
+    },
+    {
+      "name": "Dum Dum Park Bharat Chakra",
+      "lat": 22.6083,
+      "lon": 88.4025,
+      "description": "Known for its innovative themes and artistic brilliance.",
+      "district": "North 24 Parganas"
+    },
+    {
+      "name": "Dum Dum Park Tarun Sangha",
+      "lat": 22.6105,
+      "lon": 88.4069,
+      "description": "A consistent award-winner known for innovative themes and artistic idol creations.",
+      "district": "North 24 Parganas"
+    },
+    {
+      "name": "Dum Dum Park Sarbojonin",
+      "lat": 22.6121,
+      "lon": 88.4085,
+      "description": "A community puja in the Dum Dum Park area.",
+      "district": "North 24 Parganas"
+    },
+    {
+      "name": "Dum Dum Park Jubak Brinda",
+      "lat": 22.6133,
+      "lon": 88.4045,
+      "description": "A youth club's puja in Dum Dum Park.",
+      "district": "North 24 Parganas"
+    },
+    {
+      "name": "Dum Dum Park Tarun Dal",
+      "lat": 22.6145,
+      "lon": 88.4102,
+      "description": "A consistent award winner in the Dum Dum area.",
+      "district": "North 24 Parganas"
+    },
+    {
+      "name": "Jawpur Bayam Samiti",
+      "lat": 22.6178,
+      "lon": 88.4123,
+      "description": "A local community puja near Dum Dum.",
+      "district": "North 24 Parganas"
+    },
+    {
+      "name": "Dakhinpara Sarbojanin",
+      "lat": 22.6201,
+      "lon": 88.4015,
+      "description": "A local puja near Dum Dum.",
+      "district": "North 24 Parganas"
+    },
+    {
+      "name": "Thakurpukur Bazar Sarbojanin",
+      "lat": 22.4645,
+      "lon": 88.3091,
+      "description": "A major puja in Thakurpukur, known for its creative themes and artistry.",
+      "district": "South 24 Parganas"
+    },
+    {
+      "name": "Thakurpukur SB Park",
+      "lat": 22.4729,
+      "lon": 88.3113,
+      "description": "A prominent puja on the southern outskirts, famous for its grand pandals.",
+      "district": "South 24 Parganas"
+    },
+    {
+      "name": "Santragachi Kendriya Paschimpara",
+      "lat": 22.5768,
+      "lon": 88.2936,
+      "description": "A popular puja near the Santragachi station in Howrah.",
+      "district": "Howrah"
+    },
+    {
+      "name": "Olabibitala Sarbojanin",
+      "lat": 22.5801,
+      "lon": 88.3115,
+      "description": "One of the most famous and oldest pujas in Howrah.",
+      "district": "Howrah"
+    },
+    {
+      "name": "Bally Durgotsab Samity",
+      "lat": 22.6515,
+      "lon": 88.3421,
+      "description": "A well-known celebration in the Bally area of Howrah.",
+      "district": "Howrah"
+    },
+    {
+      "name": "Gondalpara Baroari",
+      "lat": 22.8595,
+      "lon": 88.3751,
+      "description": "Another major attraction in Chandannagar, known for its lights.",
+      "district": "Hooghly"
+    },
+    {
+      "name": "Bagbazar Sarbojanin (Chandannagar)",
+      "lat": 22.8688,
+      "lon": 88.3802,
+      "description": "Famous for its spectacular lighting in Hooghly's Chandannagar.",
+      "district": "Hooghly"
+    },
+    {
+      "name": "Bankura Nutan Chati Sarbojanin",
+      "lat": 23.2458,
+      "lon": 87.0673,
+      "description": "A prominent puja in Bankura town, often incorporating local art.",
+      "district": "Bankura"
+    },
+    {
+      "name": "Burnpur Riverside Puja",
+      "lat": 23.6589,
+      "lon": 86.9355,
+      "description": "A scenic puja located near the Damodar river in Burnpur.",
+      "district": "Paschim Bardhaman"
+    },
+    {
+      "name": "Burnpur Sarbojanin Durgotsav",
+      "lat": 23.6651,
+      "lon": 86.9423,
+      "description": "A massive puja celebration in the Burnpur area, organized with great fervor.",
+      "district": "Paschim Bardhaman"
+    },
+    {
+      "name": "Rabindra Nagar Sarbojanin, Asansol",
+      "lat": 23.6658,
+      "lon": 86.9855,
+      "description": "A prominent residential puja in Asansol known for its cultural programs.",
+      "district": "Paschim Bardhaman"
+    },
+    {
+      "name": "Hirapur Sarbojanin, Burnpur",
+      "lat": 23.6701,
+      "lon": 86.9515,
+      "description": "An old and respected puja in the Hirapur area of Burnpur.",
+      "district": "Paschim Bardhaman"
+    },
+    {
+      "name": "Ushagram Sarbojanin",
+      "lat": 23.6711,
+      "lon": 86.9921,
+      "description": "A well-known puja in the bustling Ushagram locality of Asansol.",
+      "district": "Paschim Bardhaman"
+    },
+    {
+      "name": "Rambandhu Talab Sarbojanin",
+      "lat": 23.6755,
+      "lon": 86.9653,
+      "description": "A beautiful puja set by the scenic Rambandhu pond in Asansol.",
+      "district": "Paschim Bardhaman"
+    },
+    {
+      "name": "Asansol Hindustan Club Puja",
+      "lat": 23.6785,
+      "lon": 86.9742,
+      "description": "A major, award-winning puja in Asansol, often featuring unique idols and concepts.",
+      "district": "Paschim Bardhaman"
+    },
+    {
+      "name": "Chelidanga Sarbojanin Durgotsav",
+      "lat": 23.6795,
+      "lon": 86.9954,
+      "description": "A famous puja known for its artistic pandal designs in Chelidanga.",
+      "district": "Paschim Bardhaman"
+    },
+    {
+      "name": "SB Gorai Road Sarbojanin",
+      "lat": 23.6822,
+      "lon": 86.9815,
+      "description": "A very famous puja in the heart of Asansol, consistently drawing huge crowds.",
+      "district": "Paschim Bardhaman"
+    },
+    {
+      "name": "Asansol Court Area Puja",
+      "lat": 23.683,
+      "lon": 86.9691,
+      "description": "A prominent puja held in the administrative court area of the city.",
+      "district": "Paschim Bardhaman"
+    },
+    {
+      "name": "Asansol Hutton Road Sarbojanin",
+      "lat": 23.6859,
+      "lon": 86.9788,
+      "description": "A popular puja in one of the main commercial areas of the city.",
+      "district": "Paschim Bardhaman"
+    },
+    {
+      "name": "Asansol Laldanga Sarbojanin",
+      "lat": 23.6892,
+      "lon": 86.9891,
+      "description": "One of the most prominent and highly-visited pujas in Asansol, known for its grand themes.",
+      "district": "Paschim Bardhaman"
+    },
+    {
+      "name": "Asansol Railway Colony Puja",
+      "lat": 23.6925,
+      "lon": 86.9801,
+      "description": "A large and traditional puja organized within the extensive railway colony.",
+      "district": "Paschim Bardhaman"
+    },
+    {
+      "name": "Asansol Dhadka Sarbojanin",
+      "lat": 23.6951,
+      "lon": 86.9582,
+      "description": "A well-known puja in the Dhadka area, famous for its vibrant atmosphere.",
+      "district": "Paschim Bardhaman"
+    },
+    {
+      "name": "Amdanga Sarbojanin, Asansol",
+      "lat": 23.6988,
+      "lon": 86.9712,
+      "description": "A popular neighborhood puja in the Amdanga locality.",
+      "district": "Paschim Bardhaman"
+    },
+    {
+      "name": "Kalla Sarbojanin Durgotsav",
+      "lat": 23.7025,
+      "lon": 86.9531,
+      "description": "A large community puja organized by the residents of the Kalla area.",
+      "district": "Paschim Bardhaman"
+    },
+    {
+      "name": "Jamuria Bazar Sarbojanin",
+      "lat": 23.7088,
+      "lon": 87.0812,
+      "description": "The largest and most central puja celebration of Jamuria town.",
+      "district": "Paschim Bardhaman"
+    },
+    {
+      "name": "Jamuria Thana Road Puja",
+      "lat": 23.7112,
+      "lon": 87.0853,
+      "description": "A popular celebration on the main road near the Jamuria police station.",
+      "district": "Paschim Bardhaman"
+    },
+    {
+      "name": "Ackpur Colliery Puja, Jamuria",
+      "lat": 23.7155,
+      "lon": 87.0911,
+      "description": "A prominent puja with a strong community feel in the colliery area.",
+      "district": "Paschim Bardhaman"
+    },
+    {
+      "name": "Gopalpur Sarbojanin, Asansol",
+      "lat": 23.7155,
+      "lon": 86.9981,
+      "description": "A significant puja drawing crowds from the northern parts of Asansol.",
+      "district": "Paschim Bardhaman"
+    },
+    {
+      "name": "Neamatpur Sarbojanin Durgotsav",
+      "lat": 23.7258,
+      "lon": 86.8831,
+      "description": "The main puja of Neamatpur town, attracting large crowds from the locality.",
+      "district": "Paschim Bardhaman"
+    },
+    {
+      "name": "Barakar Sarbojanin Durgotsav",
+      "lat": 23.741,
+      "lon": 86.835,
+      "description": "The main puja of the border town of Barakar, near Asansol.",
+      "district": "Paschim Bardhaman"
+    },
+    {
+      "name": "Raniganj Marwari Patti Puja",
+      "lat": 23.6088,
+      "lon": 87.1155,
+      "description": "A vibrant puja in the main market area of Raniganj.",
+      "district": "Paschim Bardhaman"
+    },
+    {
+      "name": "Raniganj Siyarsol Rajbari Puja",
+      "lat": 23.6121,
+      "lon": 87.1235,
+      "description": "A historic household puja in Raniganj, near Asansol, with royal traditions.",
+      "district": "Paschim Bardhaman"
+    },
+    {
+      "name": "Mamra Bazar Sarbojanin, Durgapur",
+      "lat": 23.4801,
+      "lon": 87.3015,
+      "description": "The primary puja celebration for the Mamra Bazar area on the outskirts of Durgapur.",
+      "district": "Paschim Bardhaman"
+    },
+    {
+      "name": "Durgapur Shankarpur Sarbojanin",
+      "lat": 23.5011,
+      "lon": 87.3168,
+      "description": "A famous local puja in the Shankarpur area, known for its unique themes.",
+      "district": "Paschim Bardhaman"
+    },
+    {
+      "name": "Durgapur Coke Oven Sarbojanin",
+      "lat": 23.5088,
+      "lon": 87.3115,
+      "description": "A large-scale puja organized by the residents of the Coke Oven colony.",
+      "district": "Paschim Bardhaman"
+    },
+    {
+      "name": "Muchipara Sarbojanin, Durgapur",
+      "lat": 23.5155,
+      "lon": 87.3211,
+      "description": "A major puja located at a busy intersection in Durgapur.",
+      "district": "Paschim Bardhaman"
+    },
+    {
+      "name": "Fuljhore Sarbojanin",
+      "lat": 23.5189,
+      "lon": 87.2876,
+      "description": "A well-known community puja known for its beautiful idols in Fuljhore.",
+      "district": "Paschim Bardhaman"
+    },
+    {
+      "name": "Kabiguru Sarbojanin, Durgapur",
+      "lat": 23.5222,
+      "lon": 87.2998,
+      "description": "A well-regarded puja in the Kabiguru locality.",
+      "district": "Paschim Bardhaman"
+    },
+    {
+      "name": "Sepco Township Puja",
+      "lat": 23.5255,
+      "lon": 87.2755,
+      "description": "A large-scale celebration in the well-planned Sepco township area.",
+      "district": "Paschim Bardhaman"
+    },
+    {
+      "name": "Bidhannagar Sector 2C Puja",
+      "lat": 23.5285,
+      "lon": 87.2915,
+      "description": "A popular residential area puja in Bidhannagar, Durgapur.",
+      "district": "Paschim Bardhaman"
+    },
+    {
+      "name": "Durgapur City Centre Puja (Ambuja)",
+      "lat": 23.5325,
+      "lon": 87.3201,
+      "description": "One of the largest and most commercially sponsored pujas in Durgapur, at the city's hub.",
+      "district": "Paschim Bardhaman"
+    },
+    {
+      "name": "MAMC Township Durgapuja",
+      "lat": 23.5381,
+      "lon": 87.3015,
+      "description": "A grand celebration with a huge fair in the MAMC township, Durgapur.",
+      "district": "Paschim Bardhaman"
+    },
+    {
+      "name": "DSP Township C-Zone Puja",
+      "lat": 23.5399,
+      "lon": 87.3055,
+      "description": "A major puja within the C-Zone of the Durgapur Steel Plant township.",
+      "district": "Paschim Bardhaman"
+    },
+    {
+      "name": "Durgapur B-Zone Sarbojanin",
+      "lat": 23.5411,
+      "lon": 87.3123,
+      "description": "A major theme-based puja in the B-Zone steel township.",
+      "district": "Paschim Bardhaman"
+    },
+    {
+      "name": "A-Zone Sarbojanin",
+      "lat": 23.5488,
+      "lon": 87.3095,
+      "description": "A prominent and artistic puja in the A-Zone steel township.",
+      "district": "Paschim Bardhaman"
+    },
+    {
+      "name": "Benachity Sarbojanin",
+      "lat": 23.5512,
+      "lon": 87.3456,
+      "description": "A famous puja located in the old and bustling market area of Durgapur.",
+      "district": "Paschim Bardhaman"
+    },
+    {
+      "name": "Kasthakuthi Sarbojanin, Benachity",
+      "lat": 23.5541,
+      "lon": 87.3482,
+      "description": "A notable theme puja located in the Benachity market area.",
+      "district": "Paschim Bardhaman"
+    },
+    {
+      "name": "Durgapur Nachon Road Sarbojanin",
+      "lat": 23.5562,
+      "lon": 87.3385,
+      "description": "A popular puja located on a key arterial road in the city.",
+      "district": "Paschim Bardhaman"
+    },
+    {
+      "name": "DPL Colony Puja",
+      "lat": 23.5601,
+      "lon": 87.3512,
+      "description": "A large and traditional puja in the Durgapur Projects Limited colony.",
+      "district": "Paschim Bardhaman"
+    },
+    {
+      "name": "Andal Station Sarbojanin Puja",
+      "lat": 23.5862,
+      "lon": 87.1951,
+      "description": "A major puja near the important Andal railway junction, close to Durgapur.",
+      "district": "Paschim Bardhaman"
+    },
+    {
+      "name": "Tejganj Sarbojanin, Bardhaman",
+      "lat": 23.2281,
+      "lon": 87.8655,
+      "description": "A prominent puja in the Tejganj neighborhood, attracting large footfalls.",
+      "district": "Purba Bardhaman"
+    },
+    {
+      "name": "Bardhaman Sadarghat Sarbojanin",
+      "lat": 23.2315,
+      "lon": 87.8712,
+      "description": "A popular puja located near the Damodar river ghat, known for immersion processions.",
+      "district": "Purba Bardhaman"
+    },
+    {
+      "name": "Bardhaman Nilpur Sarbojanin",
+      "lat": 23.2355,
+      "lon": 87.8812,
+      "description": "A highly reputed and popular puja in the Nilpur area of Bardhaman town.",
+      "district": "Purba Bardhaman"
+    },
+    {
+      "name": "Ranisayar Sarbojanin",
+      "lat": 23.2385,
+      "lon": 87.8611,
+      "description": "A beautiful puja organized on the banks of Ranisayar lake.",
+      "district": "Purba Bardhaman"
+    },
+    {
+      "name": "Laskardighi Sarbojanin",
+      "lat": 23.2401,
+      "lon": 87.8688,
+      "description": "A historic puja by the Laskardighi pond in Bardhaman.",
+      "district": "Purba Bardhaman"
+    },
+    {
+      "name": "Police Line Sarbojanin",
+      "lat": 23.2421,
+      "lon": 87.8588,
+      "description": "A large, well-organized, and disciplined puja at the Bardhaman Police Line.",
+      "district": "Purba Bardhaman"
+    },
+    {
+      "name": "Kalpataru Maidan, Bardhaman",
+      "lat": 23.2455,
+      "lon": 87.8801,
+      "description": "A famous puja organized at the large Kalpataru ground.",
+      "district": "Purba Bardhaman"
+    },
+    {
+      "name": "Bardhaman Alamganj Baroari",
+      "lat": 23.2481,
+      "lon": 87.8765,
+      "description": "One of the oldest, most famous, and traditional pujas in Bardhaman town.",
+      "district": "Purba Bardhaman"
+    },
+    {
+      "name": "Khoshbagan Sarbojanin",
+      "lat": 23.2495,
+      "lon": 87.8698,
+      "description": "A major crowd-puller in the central Khoshbagan area of Bardhaman.",
+      "district": "Purba Bardhaman"
+    },
+    {
+      "name": "Kanchannagar Sarbojanin",
+      "lat": 23.2511,
+      "lon": 87.8599,
+      "description": "A well-known puja in the historic Kanchannagar area of Bardhaman.",
+      "district": "Purba Bardhaman"
+    },
+    {
+      "name": "Bardhaman BC Road Puja",
+      "lat": 23.253,
+      "lon": 87.868,
+      "description": "One of the most prominent pujas on the main B.C. Road of the city.",
+      "district": "Purba Bardhaman"
+    },
+    {
+      "name": "Bardhaman Curzon Gate Puja",
+      "lat": 23.2558,
+      "lon": 87.8645,
+      "description": "A famous puja located in the vicinity of the iconic Curzon Gate.",
+      "district": "Purba Bardhaman"
+    },
+    {
+      "name": "Golapbag Sarbojanin, Bardhaman",
+      "lat": 23.2605,
+      "lon": 87.8453,
+      "description": "A well-known puja near the University of Burdwan campus in Golapbag.",
+      "district": "Purba Bardhaman"
+    },
+    {
+      "name": "Bardhaman Alisha Sarbojanin",
+      "lat": 23.2611,
+      "lon": 87.8845,
+      "description": "A famous puja located in the Alisha locality, known for grand pandals.",
+      "district": "Purba Bardhaman"
+    },
+    {
+      "name": "Satgachia Sarbojanin (near Memari)",
+      "lat": 23.1518,
+      "lon": 88.1352,
+      "description": "A large, popular puja in Satgachia, a key location on the route from Memari.",
+      "district": "Purba Bardhaman"
+    },
+    {
+      "name": "Memari Station Bazar Sarbojanin",
+      "lat": 23.1678,
+      "lon": 88.0912,
+      "description": "The central puja celebration of Memari, located near the main market.",
+      "district": "Purba Bardhaman"
+    },
+    {
+      "name": "Memari Nimo Pally Sarbojanin",
+      "lat": 23.1705,
+      "lon": 88.0955,
+      "description": "A well-known and respected community celebration in the Nimo neighborhood of Memari.",
+      "district": "Purba Bardhaman"
+    },
+    {
+      "name": "Memari Chakdighi Rajbari Puja",
+      "lat": 23.1852,
+      "lon": 87.9715,
+      "description": "A historic and traditional household puja of the Chakdighi Zamindars near Memari.",
+      "district": "Purba Bardhaman"
+    },
+    {
+      "name": "Kalna Sahaganj Sarbojanin",
+      "lat": 23.2099,
+      "lon": 88.3688,
+      "description": "A notable puja in the Sahaganj area of Kalna, drawing local crowds.",
+      "district": "Purba Bardhaman"
+    },
+    {
+      "name": "Kalna Anukhal Sarbojanin",
+      "lat": 23.2155,
+      "lon": 88.3581,
+      "description": "A popular puja located in the Anukhal area, known for its traditional celebrations.",
+      "district": "Purba Bardhaman"
+    },
+    {
+      "name": "Kalna Mahishmardini Tala Sarbojanin",
+      "lat": 23.2185,
+      "lon": 88.3615,
+      "description": "A famous and revered community puja in the heart of Kalna.",
+      "district": "Purba Bardhaman"
+    },
+    {
+      "name": "Kalna 108 Shiv Mandir Puja",
+      "lat": 23.2241,
+      "lon": 88.3655,
+      "description": "Celebrations held in the vicinity of the iconic 108 Shiva Temples complex.",
+      "district": "Purba Bardhaman"
+    },
+    {
+      "name": "Kalna Choto Debipur Sarbojanin",
+      "lat": 23.2255,
+      "lon": 88.3698,
+      "description": "A popular community puja in the Debipur locality of Kalna.",
+      "district": "Purba Bardhaman"
+    },
+    {
+      "name": "Borsul Sarbojanin Durgotsab",
+      "lat": 23.2985,
+      "lon": 87.7951,
+      "description": "The main community puja for the village of Borsul, known for its traditional atmosphere.",
+      "district": "Purba Bardhaman"
+    },
+    {
+      "name": "Mankar Sarbojanin Durgotsav (near Guskara)",
+      "lat": 23.4351,
+      "lon": 87.6525,
+      "description": "A major puja in the nearby town of Mankar, often visited by people from Guskara.",
+      "district": "Purba Bardhaman"
+    },
+    {
+      "name": "Guskara Station Road Sarbojanin",
+      "lat": 23.4988,
+      "lon": 87.7511,
+      "description": "The main puja celebration in Guskara town, attracting people from nearby villages.",
+      "district": "Purba Bardhaman"
+    },
+    {
+      "name": "Guskara College Para Sarbojanin",
+      "lat": 23.5021,
+      "lon": 87.7553,
+      "description": "A popular puja organized by the residents of the College Para locality.",
+      "district": "Purba Bardhaman"
+    },
+    {
+      "name": "Nadanghat Sarbojanin (near Katwa)",
+      "lat": 23.5182,
+      "lon": 88.2315,
+      "description": "A significant puja at the Nadanghat ferry point, a hub for many villages near Katwa.",
+      "district": "Purba Bardhaman"
+    },
+    {
+      "name": "Dainhat Station Sarbojanin",
+      "lat": 23.6011,
+      "lon": 88.1889,
+      "description": "The primary community puja in Dainhat, located near the railway station.",
+      "district": "Purba Bardhaman"
+    },
+    {
+      "name": "Dainhat Daspara Sarbojanin",
+      "lat": 23.6055,
+      "lon": 88.1941,
+      "description": "A local neighborhood puja in Dainhat known for its community participation.",
+      "district": "Purba Bardhaman"
+    },
+    {
+      "name": "Katwa Notun Pally Sarbojanin",
+      "lat": 23.6425,
+      "lon": 88.1395,
+      "description": "A well-regarded neighborhood puja in Katwa known for its artistic approach.",
+      "district": "Purba Bardhaman"
+    },
+    {
+      "name": "Katwa Station Bazar Sarbojanin",
+      "lat": 23.6455,
+      "lon": 88.1341,
+      "description": "The largest and most famous puja in Katwa, located near the station market.",
+      "district": "Purba Bardhaman"
+    },
+    {
+      "name": "Katwa Circus Maidan Puja",
+      "lat": 23.6501,
+      "lon": 88.1388,
+      "description": "A major puja with a large fair held at the central Circus Maidan.",
+      "district": "Purba Bardhaman"
+    },
+    {
+      "name": "Katwa Kashiram Das Pally",
+      "lat": 23.6525,
+      "lon": 88.135,
+      "description": "A prominent neighborhood puja on one of the main thoroughfares of Katwa town.",
+      "district": "Purba Bardhaman"
+    },
+    {
+      "name": "Konnagar Rajbari Puja",
+      "lat": 22.7011,
+      "lon": 88.3525,
+      "description": "A historic household puja with deep-rooted traditions, open for public viewing.",
+      "district": "Hooghly"
+    },
+    {
+      "name": "Rishra Nabarun Sangha",
+      "lat": 22.7158,
+      "lon": 88.3499,
+      "description": "A well-known theme puja in Rishra that consistently wins awards for its creativity.",
+      "district": "Hooghly"
+    },
+    {
+      "name": "Serampore Roybari Puja",
+      "lat": 22.7533,
+      "lon": 88.3401,
+      "description": "A historic household puja of the Serampore Roy family, open to the public.",
+      "district": "Hooghly"
+    },
+    {
+      "name": "Serampore Talkies Road Sarbojanin",
+      "lat": 22.7589,
+      "lon": 88.3435,
+      "description": "One of the biggest and most popular theme pujas in Serampore.",
+      "district": "Hooghly"
+    },
+    {
+      "name": "Serampore Chatra Sarbojanin",
+      "lat": 22.7651,
+      "lon": 88.3485,
+      "description": "A famous puja in the bustling Chatra area, known for its grand scale.",
+      "district": "Hooghly"
+    },
+    {
+      "name": "Mahesh Rath Yatra Committee Puja",
+      "lat": 22.7715,
+      "lon": 88.3512,
+      "description": "Famous puja organized by the Rath Yatra committee in Mahesh, Serampore.",
+      "district": "Hooghly"
+    },
+    {
+      "name": "Sheoraphuli Rajbari Puja",
+      "lat": 22.7853,
+      "lon": 88.3581,
+      "description": "A centuries-old royal family puja in Sheoraphuli, near Serampore, with deep-rooted traditions.",
+      "district": "Hooghly"
+    },
+    {
+      "name": "Baidyabati Young Star Durgotsav",
+      "lat": 22.7955,
+      "lon": 88.3312,
+      "description": "A popular modern puja in Baidyabati (near Serampore) known for its thematic brilliance.",
+      "district": "Hooghly"
+    },
+    {
+      "name": "Bhadreswar Taltala Baroari",
+      "lat": 22.8255,
+      "lon": 88.3518,
+      "description": "A prominent and old community puja in the heart of Bhadreswar.",
+      "district": "Hooghly"
+    },
+    {
+      "name": "Mankundu Sporting Club Puja",
+      "lat": 22.8458,
+      "lon": 88.3585,
+      "description": "A popular puja in Mankundu, known for its thematic pandals and vibrant environment.",
+      "district": "Hooghly"
+    },
+    {
+      "name": "Chandannagar Gondalpara Baroari",
+      "lat": 22.8595,
+      "lon": 88.3751,
+      "description": "Another iconic puja in Chandannagar, renowned for its artistic brilliance and innovative light work.",
+      "district": "Hooghly"
+    },
+    {
+      "name": "Chandannagar Bagbazar Sarbojanin",
+      "lat": 22.8688,
+      "lon": 88.3802,
+      "description": "Extremely famous for its spectacular lighting and grand themes, a major attraction in Hooghly.",
+      "district": "Hooghly"
+    },
+    {
+      "name": "Tarakeswar Temple Town Puja",
+      "lat": 22.8875,
+      "lon": 88.0163,
+      "description": "The main puja celebration in the holy town of Tarakeswar, with a devotional atmosphere.",
+      "district": "Hooghly"
+    },
+    {
+      "name": "Chinsurah Sandeswartala Sarbojanin",
+      "lat": 22.8988,
+      "lon": 88.3905,
+      "description": "An ancient and highly revered puja centered around the Sandeswar temple in Chinsurah.",
+      "district": "Hooghly"
+    },
+    {
+      "name": "Chuchura Joraghat Sarbojanin",
+      "lat": 22.9115,
+      "lon": 88.3932,
+      "description": "A famous puja by the river ghat in Chuchura, known for its beautiful setting.",
+      "district": "Hooghly"
+    },
+    {
+      "name": "Hooghly Imambara Puja",
+      "lat": 22.9145,
+      "lon": 88.3951,
+      "description": "A prominent puja organized near the historic Hooghly Imambara.",
+      "district": "Hooghly"
+    },
+    {
+      "name": "Bandel KDC Sarbojanin Durgotsab",
+      "lat": 22.9231,
+      "lon": 88.3815,
+      "description": "A major puja in Bandel, located near the Dunlop factory area, drawing huge crowds.",
+      "district": "Hooghly"
+    },
+    {
+      "name": "Dhaniakhali Sarbojanin",
+      "lat": 22.9751,
+      "lon": 88.1025,
+      "description": "The central puja of Dhaniakhali, a town famous for its handloom sarees.",
+      "district": "Hooghly"
+    },
+    {
+      "name": "Tribeni Sarbojanin Durgotsav",
+      "lat": 22.9915,
+      "lon": 88.4021,
+      "description": "A historic and large-scale puja in the ancient town of Tribeni.",
+      "district": "Hooghly"
+    },
+    {
+      "name": "Gurap Sarbojanin Durgotsav",
+      "lat": 23.1045,
+      "lon": 88.1818,
+      "description": "The main community puja in the town of Gurap, a hub for surrounding villages.",
+      "district": "Hooghly"
+    },
+    {
+      "name": "Guptipara Brindaban Chandra Math Puja",
+      "lat": 23.1955,
+      "lon": 88.4218,
+      "description": "Famous for being one of the first publicly organized 'Baroari' pujas in Bengal, with a rich history.",
+      "district": "Hooghly"
+    },
+     {
+      "name": "Sabarna Roy Choudhury Aatchala Pujo",
+      "lat": 22.4971,
+      "lon": 88.3188,
+      "description": "Considered the oldest Durga Puja in Kolkata, dating back to 1610. The family that once owned the land of Kolkata continues this historic tradition.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Sovabazar Rajbari (Boro Taraf)",
+      "lat": 22.598,
+      "lon": 88.366,
+      "description": "One of the most famous heritage pujas, started in 1757 by Raja Nabakrishna Deb. This is the palace of the elder son.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Sovabazar Rajbari (Choto Taraf)",
+      "lat": 22.5978,
+      "lon": 88.3665,
+      "description": "The puja of the younger son's family, located adjacent to the main palace. Known for its grandeur and traditional Pratima.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Rani Rashmoni Bari Pujo (Janbazar)",
+      "lat": 22.5615,
+      "lon": 88.356,
+      "description": "The historic puja held in the ancestral home of Rani Rashmoni, the founder of the Dakshineswar Kali Temple.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Chhatu Babu Latu Babu Dutta Bari",
+      "lat": 22.5901,
+      "lon": 88.368,
+      "description": "Started in the 18th century, this puja is known for its majestic rituals, grand scale, and deep roots in Bengal's history.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Thanthania Dutta Bari",
+      "lat": 22.579,
+      "lon": 88.3642,
+      "description": "Dating back over 150 years, this puja is renowned for its continuity in tradition and its classic 'ekchala' idol (single frame).",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Darjipara Mitra Bari",
+      "lat": 22.5895,
+      "lon": 88.3662,
+      "description": "Famous for its massive 'ekchala' idol and the tradition of worshipping the same idol structure for the entire year. Started in 1809.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Jorasanko Daw Bari",
+      "lat": 22.5833,
+      "lon": 88.3626,
+      "description": "Known for its stunning traditional idol decorations, particularly the use of silver foil and ornaments ('Daaker Saaj').",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Bhawanipore Mallick Bari",
+      "lat": 22.531,
+      "lon": 88.3475,
+      "description": "One of the oldest and most famous family pujas in South Kolkata, maintaining its aristocratic traditions for over 170 years.",
+      "district": "Kolkata"
+    },
+    {
+      "name": "Badan Chandra Roy Bari (Colootola)",
+      "lat": 22.5778,
+      "lon": 88.3595,
+      "description": "A well-preserved heritage residence with a beautiful quadrangle where the 160-year-old puja is held.",
+      "district": "Kolkata"
+    }
   ],
   "startingPoints": {
     "gariahat": { "lat": 22.5204, "lon": 88.3672, "area": "South", "label": "Gariahat Junction" },
@@ -144,21 +1323,35 @@
     "tollygunge": { "lat": 22.4975, "lon": 88.3444, "area": "South", "label": "Tollygunge Metro" },
     "hazra": { "lat": 22.5218, "lon": 88.3496, "area": "South", "label": "Hazra More" },
     "rashbehari": { "lat": 22.5173, "lon": 88.3537, "area": "South", "label": "Rashbehari Crossing" },
-    "ruby": { "lat": 22.5132, "lon": 88.4043, "area": "South", "label": "Ruby Hospital" },
-    "kavi-subhash": { "lat": 22.4695, "lon": 88.4024, "area": "South", "label": "Kavi Subhash Metro" },
-    "kasba": { "lat": 22.5142, "lon": 88.3845, "area": "South", "label": "Kasba Golpark" },
+    "kalighat-metro": { "lat": 22.5202, "lon": 88.3453, "area": "South", "label": "Kalighat Metro" },
+    "jatin-das-park-metro": { "lat": 22.5285, "lon": 88.3511, "area": "South", "label": "Jatin Das Park Metro" },
     "behala-chowrasta": { "lat": 22.4916, "lon": 88.3151, "area": "South", "label": "Behala Chowrasta" },
     "shyambazar": { "lat": 22.5990, "lon": 88.3737, "area": "North", "label": "Shyambazar 5 Point" },
     "dumdum": { "lat": 22.6247, "lon": 88.4023, "area": "North", "label": "Dum Dum Metro" },
     "girish-park": { "lat": 22.5861, "lon": 88.3656, "area": "North", "label": "Girish Park Metro" },
     "sovabazar": { "lat": 22.5954, "lon": 88.3671, "area": "North", "label": "Sovabazar Metro" },
     "ultadanga": { "lat": 22.5936, "lon": 88.3892, "area": "North", "label": "Ultadanga" },
-    "sinthee-more": { "lat": 22.6267, "lon": 88.3849, "area": "North", "label": "Sinthee More" },
-    "maniktala": { "lat": 22.5866, "lon": 88.3789, "area": "North", "label": "Maniktala Crossing" },
-    "beliaghata": { "lat": 22.5710, "lon": 88.3900, "area": "North", "label": "Beliaghata CIT More" },
-    "esplanade": { "lat": 22.5639, "lon": 88.3524, "area": "All", "label": "Esplanade Metro" },
-    "sealdah": { "lat": 22.5645, "lon": 88.3711, "area": "All", "label": "Sealdah Station" },
-    "park-circus": { "lat": 22.5408, "lon": 88.3701, "area": "All", "label": "Park Circus 7 Point" },
-    "karunamoyee": { "lat": 22.5851, "lon": 88.4150, "area": "All", "label": "Karunamoyee, Salt Lake" }
+    "belgachia-metro": { "lat": 22.6075, "lon": 88.3842, "area": "North", "label": "Belgachia Metro" },
+    "esplanade": { "lat": 22.5639, "lon": 88.3524, "area": "All", "label": "Esplanade Metro (Central Hub)" },
+    "sealdah": { "lat": 22.5645, "lon": 88.3711, "area": "All", "label": "Sealdah Station (Central Hub)" },
+    "howrah-station": { "lat": 22.5849, "lon": 88.3431, "area": "All", "label": "Howrah Station (Gateway)" },
+    "karunamoyee": { "lat": 22.5851, "lon": 88.4150, "area": "All", "label": "Karunamoyee, Salt Lake" },
+    "asansol-station": { "lat": 23.6895, "lon": 86.9790, "area": "All", "label": "Asansol Junction" },
+    "asansol-bus-terminus": { "lat": 23.6791, "lon": 86.9925, "area": "All", "label": "Asansol Bus Terminus" },
+    "durgapur-station": { "lat": 23.4868, "lon": 87.3119, "area": "All", "label": "Durgapur Station" },
+    "durgapur-city-centre": { "lat": 23.5325, "lon": 87.3201, "area": "All", "label": "Durgapur City Centre" },
+    "raniganj-station": { "lat": 23.6151, "lon": 87.1245, "area": "All", "label": "Raniganj Station" },
+    "bardhaman-station": { "lat": 23.2450, "lon": 87.8633, "area": "All", "label": "Bardhaman Junction" },
+    "curzon-gate-bardhaman": { "lat": 23.2558, "lon": 87.8645, "area": "All", "label": "Curzon Gate, Bardhaman" },
+    "kalna-station": { "lat": 23.2201, "lon": 88.3541, "area": "All", "label": "Kalna Station" },
+    "katwa-junction": { "lat": 23.6449, "lon": 88.1325, "area": "All", "label": "Katwa Junction" },
+    "memari-station": { "lat": 23.1680, "lon": 88.0895, "area": "All", "label": "Memari Station" },
+    "guskara-station": { "lat": 23.4985, "lon": 87.7499, "area": "All", "label": "Guskara Station" },
+    "chuchura-station": { "lat": 22.9055, "lon": 88.3861, "area": "All", "label": "Chuchura Station" },
+    "shreerampore-station": { "lat": 22.7565, "lon": 88.3418, "area": "All", "label": "Shreerampore (Serampore) Station" },
+    "chandannagar-station": { "lat": 22.8631, "lon": 88.3695, "area": "All", "label": "Chandannagar Station" },
+    "bolpur-station": { "lat": 23.6689, "lon": 87.6845, "area": "All", "label": "Bolpur Santiniketan Station" },
+    "berhampore-station": { "lat": 24.0955, "lon": 88.2573, "area": "All", "label": "Berhampore Court Station" },
+    "krishnanagar-station": { "lat": 23.4116, "lon": 88.5029, "area": "All", "label": "Krishnanagar City Junction" }
   }
 }
