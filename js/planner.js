@@ -389,7 +389,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (target) {
             const lat = target.dataset.lat;
             const lon = target.dataset.lon;
-            const url = `https://maps.google.com/?q=${lat},${lon}`;
+            const url = `https://www.google.com/maps?q=${lat},${lon}`;
             window.open(url, '_blank'); // Open in a new tab
             pandalSearchInput.value = ''; // Clear search input
             searchResultsContainer.style.display = 'none'; // Hide results
@@ -862,7 +862,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- *** NEW *** Razorpay Donation Modal Logic ---
     const closeDonationModalBtn = document.querySelector('.donation-close-btn');
     const presetBtns = document.querySelectorAll('.preset-btn');
-    const customAmountInput = document.getElementById('custom-amount-input');
     const donateNowBtn = document.getElementById('donate-now-btn');
 
     if (donateButton && donationModal) {
@@ -882,38 +881,29 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', () => {
             presetBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            customAmountInput.value = ''; // Clear custom input
         });
     });
 
-    if (customAmountInput) {
-        customAmountInput.addEventListener('input', () => {
-            presetBtns.forEach(b => b.classList.remove('active')); // Deselect presets
-        });
-    }
-
     if (donateNowBtn) {
+        const paymentLinks = {
+            'donate-21': 'https://rzp.io/rzp/AkM9tsLv',
+            'donate-51': 'https://rzp.io/rzp/h6aVond',
+            'donate-101': 'https://rzp.io/rzp/4u5PToOb',
+            'donate-custom': 'https://rzp.io/rzp/fkGfdCt'
+        };
+
         donateNowBtn.addEventListener('click', () => {
-            const razorpayBaseUrl = 'https://razorpay.me/@arunabhabanerjee';
-            let amount = 0;
-
             const activePreset = document.querySelector('.preset-btn.active');
-            if (activePreset) {
-                amount = parseInt(activePreset.dataset.amount, 10);
-            } else if (customAmountInput.value) {
-                const customAmount = parseInt(customAmountInput.value, 10);
-                if (customAmount > 0) {
-                    amount = customAmount;
+            if (activePreset && activePreset.id) {
+                const url = paymentLinks[activePreset.id];
+                if (url) {
+                    window.open(url, '_blank');
+                    donationModal.classList.remove('active');
+                } else {
+                    alert('Could not find the payment link for the selected amount.');
                 }
-            }
-
-            if (amount > 0) {
-                const amountInPaise = amount * 100;
-                const finalUrl = `${razorpayBaseUrl}?amount=${amountInPaise}`;
-                window.open(finalUrl, '_blank');
-                donationModal.classList.remove('active'); // Close modal after action
             } else {
-                alert('Please select a preset amount or enter a valid custom amount.');
+                alert('Please select a donation amount.');
             }
         });
     }
