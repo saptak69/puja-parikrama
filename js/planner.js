@@ -70,171 +70,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- DATABASE ---
     let pandalData = [];
+    let startingPoints = {};
     let currentSuggestedItinerary = [];
     let myPlanItinerary = [];
-
-    const corePandals = [
-        {"name":"Sinthee More", "lat":22.6267, "lon":88.3849, "description":"A key starting point in the northern part of the city."},
-        {"name":"Dum Dum Metro", "lat":22.6247, "lon":88.4023, "description":"A major metro station and starting hub for North Kolkata."},
-        {"name":"Dakhinpara Sarbojanin", "lat":22.6201, "lon":88.4015, "description":"A local puja near Dum Dum."},
-        {"name":"Jawpur Bayam Samiti", "lat":22.6178, "lon":88.4123, "description":"A local community puja near Dum Dum."},
-        {"name":"Dum Dum Park Tarun Dal", "lat":22.6145, "lon":88.4102, "description":"A consistent award winner in the Dum Dum area."},
-        {"name":"Tala Prottoye", "lat":22.6135, "lon":88.3755, "description":"Famous for its innovative and artistic themes."},
-        {"name":"Dum Dum Park Jubak Brinda", "lat":22.6133, "lon":88.4045, "description":"A youth club's puja in Dum Dum Park."},
-        {"name":"Tala Ponero (15) Pally", "lat":22.6125, "lon":88.3741, "description":"A community puja in the Tala area."},
-        {"name":"Dum Dum Park Sarbojonin", "lat":22.6121, "lon":88.4085, "description":"A community puja in the Dum Dum Park area."},
-        {"name":"Tala Barowari", "lat":22.6111, "lon":88.3728, "description":"One of the oldest community pujas in Kolkata."},
-        {"name":"Dum Dum Park Tarun Sangha", "lat":22.6105, "lon":88.4069, "description":"A consistent award-winner known for innovative themes and artistic idol creations."},
-        {"name":"Belgachia Sadharon Durga Puja", "lat":22.6098, "lon":88.3833, "description":"A large public puja in Belgachia."},
-        {"name":"Dum Dum Park Bharat Chakra", "lat":22.6083, "lon":88.4025, "description":"Known for its innovative themes and artistic brilliance."},
-        {"name":"Dakshin Dari", "lat":22.6055, "lon":88.4031, "description":"A notable puja near VIP Road."},
-        {"name":"Bagbazar Sarbojanin", "lat":22.6033, "lon":88.3683, "description":"One of the oldest (~100 years) and most traditional pujas, famed for its classic idol."},
-        {"name":"Basak Bagan", "lat":22.6025, "lon":88.3985, "description":"A neighbourhood puja near Patipukur."},
-        {"name":"Lake Town Netaji Sporting", "lat":22.6012, "lon":88.4078, "description":"A popular puja near Lake Town."},
-        {"name":"Kumortuli Sarbojanin", "lat":22.6008, "lon":88.3685, "description":"A highly artistic puja in the idol-makers' locality."},
-        {"name":"Kumartuli Park", "lat":22.6001, "lon":88.3692, "description":"Located in the potters' district, it's known for its highly artistic and traditional approach."},
-        {"name":"Kalindi Housing", "lat":22.5999, "lon":88.4011, "description":"A housing estate's puja near Lake Town."},
-        {"name":"Shyambazar 5 Point", "lat":22.5990, "lon":88.3737, "description":"The iconic starting point for North Kolkata pandal hopping."},
-        {"name":"Golaghata Sarbojanin", "lat":22.5991, "lon":88.3953, "description":"A well-attended puja near Ultadanga."},
-        {"name":"Shyambazar Nabin Pally", "lat":22.5982, "lon":88.3751, "description":"A community puja near Shyambazar."},
-        {"name":"Sovabazar Rajbari", "lat":22.5978, "lon":88.3665, "description":"One of the oldest household pujas, open to the public."},
-        {"name":"Sreebhumi Sporting Club", "lat":22.5977, "lon":88.4098, "description":"Extremely famous for its grand themes, often replicating world monuments."},
-        {"name":"Chaltabagan Lohapatti", "lat":22.5975, "lon":88.3735, "description":"A multiple award-winning puja in Manicktala, known for its artistic excellence."},
-        {"name":"Lake Town Adhibasi Brinda", "lat":22.5970, "lon":88.4055, "description":"Consistently wins awards for its unique themes and beautiful execution."},
-        {"name":"Hatibagan Sarbojanin", "lat":22.5969, "lon":88.3734, "description":"One of the most famous pujas in North Kolkata."},
-        {"name":"Beniatola Sarbojanin", "lat":22.5965, "lon":88.3645, "description":"One of the old pujas of North Kolkata."},
-        {"name":"Lake Town Association", "lat":22.5955, "lon":88.4042, "description":"A local association's puja in Lake Town."},
-        {"name":"Sovabazar Metro", "lat":22.5954, "lon":88.3671, "description":"A key metro station for accessing North Kolkata pujas."},
-        {"name":"Ultandanga Sangrami", "lat":22.5948, "lon":88.3912, "description":"A local club's puja in Ultadanga."},
-        {"name":"Telengabagan Sarbojanin", "lat":22.5945, "lon":88.3783, "description":"Celebrated for its immersive themes and high-quality craftsmanship."},
-        {"name":"Hatibagan Crossing", "lat":22.5945, "lon":88.3722, "description":"A busy intersection and hub for North Kolkata pujas."},
-        {"name":"Kashi Bose Lane Durga Puja", "lat":22.5943, "lon":88.3718, "description":"Renowned for its traditional artistic style and community feel."},
-        {"name":"Ahiritola Jubak Brinda", "lat":22.5942, "lon":88.3625, "description":"A youth club's puja in the Ahiritola area."},
-        {"name":"Ahiritola", "lat":22.5936, "lon":88.3639, "description":"A famous and old traditional puja."},
-        {"name":"Ahiritola Sarbojanin", "lat":22.5936, "lon":88.3639, "description":"A famous and old traditional puja in North Kolkata."},
-        {"name":"Ultadanga", "lat":22.5936, "lon":88.3892, "description":"A major transit point connecting North Kolkata and Salt Lake."},
-        {"name":"Jagat Mukherjee Park", "lat":22.5925, "lon":88.3701, "description":"A beautiful puja held in a park setting."},
-        {"name":"AH Block", "lat":22.5923, "lon":88.4167, "description":"A popular residential block puja in Salt Lake."},
-        {"name":"Ultandanga Pallysree", "lat":22.5915, "lon":88.3871, "description":"A popular community puja in Ultadanga."},
-        {"name":"Bayan Samity Lala Bagan", "lat":22.5912, "lon":88.3845, "description":"A local puja in the Maniktala area."},
-        {"name":"Bedon Street", "lat":22.5911, "lon":88.3695, "description":"A community puja in the Beadon Street area."},
-        {"name":"Chorebagan Sarbojanin", "lat":22.5891, "lon":88.3642, "description":"A famous puja in a historic North Kolkata locality."},
-        {"name":"AE Part 1 Block", "lat":22.5891, "lon":88.4145, "description":"A prominent block puja in Salt Lake."},
-        {"name":"Nalin Sarkar Street", "lat":22.5898, "lon":88.3715, "description":"A highly reputed puja, famous for its unique and artistic idols."},
-        {"name":"Pathuriaghata", "lat":22.5899, "lon":88.3615, "description":"A notable puja in a historic neighbourhood."},
-        {"name":"Vivekananda Sporting", "lat":22.5888, "lon":88.3805, "description":"A well-known club's puja in Maniktala."},
-        {"name":"BJ Block, Salt Lake", "lat":22.5879, "lon":88.4118, "description":"Another major attraction in Salt Lake, consistently praised for its creativity."},
-        {"name":"Darpanarayan Street", "lat":22.5878, "lon":88.3601, "description":"A local street's community puja."},
-        {"name":"Maniktala Crossing", "lat":22.5866, "lon":88.3789, "description":"A central point in Maniktala, surrounded by pujas."},
-        {"name":"Girish Park Metro", "lat":22.5861, "lon":88.3656, "description":"Metro station providing access to many North Kolkata pujas."},
-        {"name":"Kankurgachi Yubak Brinda", "lat":22.5855, "lon":88.3948, "description":"A major puja attraction in Kankurgachi."},
-        {"name":"Karunamoyee, Salt Lake", "lat":22.5851, "lon":88.4150, "description":"A central location in Salt Lake, close to several big pujas."},
-        {"name":"Shimla Street", "lat":22.5831, "lon":88.3682, "description":"Known for its artistic pandals in North Kolkata."},
-        {"name":"FD Block, Salt Lake", "lat":22.5824, "lon":88.4121, "description":"One of the biggest and most popular pujas in Salt Lake."},
-        {"name":"Kankurgachi Mitali Sangha", "lat":22.5819, "lon":88.3916, "description":"A well-known puja in the Kankurgachi area, often featuring beautiful designs."},
-        {"name":"Mohammad Ali Park", "lat":22.5780, "lon":88.3601, "description":"A major crowd-puller in Central Kolkata, known for its magnificent architecture."},
-        {"name":"Green Park Recreational Club", "lat":22.5755, "lon":88.4188, "description":"A club-based puja in Salt Lake."},
-        {"name":"Pragati Pally", "lat":22.5731, "lon":88.4201, "description":"A community puja in the Salt Lake area."},
-        {"name":"College Square", "lat":22.5714, "lon":88.3619, "description":"Legendary for its stunning pandal and idol reflection in the adjacent lake."},
-        {"name":"Santosh Mitra Square", "lat":22.5702, "lon":88.3571, "description":"Located in the Bowbazar area, famous for its grand and often surprising themes."},
-        {"name":"Beleghata 33 Pally", "lat":22.5698, "lon":88.3921, "description":"A prominent puja in the Beleghata area."},
-        {"name":"Sealdah Station", "lat":22.5645, "lon":88.3711, "description":"A major railway station, a gateway for pandal hoppers."},
-        {"name":"Esplanade Metro", "lat":22.5639, "lon":88.3524, "description":"The heart of the city, a central hub for all directions."},
-        {"name":"Park Circus 7 Point", "lat":22.5408, "lon":88.3701, "description":"A major connector between central, south, and east Kolkata."},
-        {"name":"25 Pally", "lat":22.5388, "lon":88.3211, "description":"A community puja in the Khidirpur area."},
-        {"name":"Nabarag", "lat":22.5401, "lon":88.3245, "description":"A notable puja in Khidirpur."},
-        {"name":"Yubak Sangha", "lat":22.5376, "lon":88.3283, "description":"A youth club's puja in Khidirpur."},
-        {"name":"75 Pally", "lat":22.5361, "lon":88.3228, "description":"A popular local puja in Khidirpur."},
-        {"name":"Pally Sharadiya", "lat":22.5352, "lon":88.3265, "description":"A known puja celebration in Khidirpur."},
-        {"name":"Abasar Sarbojanin", "lat":22.5344, "lon":88.3488, "description":"A community celebration in Bhawanipore."},
-        {"name":"Kabhi Tirtha Yuba Gosthi", "lat":22.5342, "lon":88.3299, "description":"A local community puja in Khidirpur."},
-        {"name":"Bhawanipore Rupchand", "lat":22.5312, "lon":88.3458, "description":"A local puja in the Bhawanipore area."},
-        {"name":"Maddox Square", "lat":22.5288, "lon":88.3565, "description":"Legendary for its relaxed, 'adda' atmosphere and traditional feel."},
-        {"name":"Jatin Das Park", "lat":22.5285, "lon":88.3511, "description":"A prominent puja held near Jatin Das Park metro."},
-        {"name":"Ballygunge Phari", "lat":22.5286, "lon":88.3653, "description":"A key junction near many famous South Kolkata pujas."},
-        {"name":"Ballygunge Cultural Association", "lat":22.5273, "lon":88.3605, "description":"A prestigious and old puja known for its traditional and cultural elegance."},
-        {"name":"Samaj Sebi Sangha", "lat":22.5255, "lon":88.3615, "description":"Often highlights strong social messages through its theme and artwork."},
-        {"name":"Alipore Sarbojanin", "lat":22.5250, "lon":88.3361, "description":"A major puja in the Alipore area."},
-        {"name":"Deshapriya Park", "lat":22.5242, "lon":88.3551, "description":"Hosts one of the most widely visited pujas, often with grand-scale themes."},
-        {"name":"Hazra Park", "lat":22.5241, "lon":88.3485, "description":"A famous puja near the busy Hazra crossing."},
-        {"name":"Singhi Park", "lat":22.5228, "lon":88.3633, "description":"An old and prestigious puja with a traditional idol."},
-        {"name":"Alipur 78 Pally", "lat":22.5224, "lon":88.3323, "description":"A popular local puja in Alipore."},
-        {"name":"Tridhara Sammilani", "lat":22.5222, "lon":88.3569, "description":"Famous for its massive, innovative, and often abstract structures."},
-        {"name":"Hazra More", "lat":22.5218, "lon":88.3496, "description":"A bustling intersection, gateway to many South Kolkata pujas."},
-        {"name":"Falguni Sangha", "lat":22.5215, "lon":88.3689, "description":"A community puja in the Gariahat area."},
-        {"name":"Kalighat Milon Sangha", "lat":22.5205, "lon":88.3421, "description":"A well-known puja in the Kalighat area."},
-        {"name":"Gariahat Junction", "lat":22.5204, "lon":88.3672, "description":"A prime starting point for South Kolkata pandal hopping."},
-        {"name":"Kalighat Metro", "lat":22.5202, "lon":88.3453, "description":"Metro station right next to the famous Kalighat temple."},
-        {"name":"Hindustan Park Sarbojanin", "lat":22.5194, "lon":88.3601, "description":"Known for its highly artistic and thematic approaches to the pandal and idol."},
-        {"name":"Ekdalia Evergreen Club", "lat":22.5186, "lon":88.3664, "description":"Known for its stunning, massive lighting installations and traditional idols."},
-        {"name":"Akal Bodhan", "lat":22.5183, "lon":88.3352, "description":"A famous and traditional puja in Chetla."},
-        {"name":"Shib Mandir Sarbojanin", "lat":22.5173, "lon":88.3537, "description":"A very popular puja near the Lake Market area, consistently drawing large crowds."},
-        {"name":"Rashbehari Crossing", "lat":22.5173, "lon":88.3537, "description":"A central point connecting Gariahat, Kalighat, and Tollygunge."},
-        {"name":"Chotuskon Park", "lat":22.5155, "lon":88.3575, "description":"A local puja in the Bhowanipore area."},
-        {"name":"Hindustan Club", "lat":22.5152, "lon":88.3626, "description":"Located in Gariahat, this puja is known for its unique themes and idols."},
-        {"name":"Chetla Agrani Club", "lat":22.5144, "lon":88.3373, "description":"A top contender for awards, known for its deep, thought-provoking themes."},
-        {"name":"Kasba Golpark", "lat":22.5142, "lon":88.3845, "description":"A starting point for pujas around the Kasba area."},
-        {"name":"Nepal Bhattacharya Street", "lat":22.5135, "lon":88.3455, "description":"A local street's community puja."},
-        {"name":"Mudiali Club", "lat":22.5129, "lon":88.3484, "description":"An old and famous puja known for its traditional charm and beautiful lighting."},
-        {"name":"Bosepukur Sitala Mandir", "lat":22.5126, "lon":88.3712, "description":"Often comes up with unique rural or folk art themes, winning many awards."},
-        {"name":"66 Pally", "lat":22.5119, "lon":88.3508, "description":"A famous puja near Rashbehari Avenue, known for its unique themes."},
-        {"name":"Vivekanda Park Athletic Club", "lat":22.5118, "lon":88.3644, "description":"A well-known puja near the Southern Avenue area."},
-        {"name":"Badamtala Ashar Sangha", "lat":22.5112, "lon":88.3411, "description":"A consistent award-winner, famous for its creative and artistic themes."},
-        {"name":"Ruby Hospital", "lat":22.5132, "lon":88.4043, "description":"A landmark on the EM Bypass, gateway to pujas in East Kolkata."},
-        {"name":"Selimpur Pally", "lat":22.5085, "lon":88.3655, "description":"Celebrated for its creative use of materials and intricate craftsmanship."},
-        {"name":"Lake Youth Corner", "lat":22.5081, "lon":88.3495, "description":"A popular puja near the Tollygunge lakes."},
-        {"name":"95 Pally Jodhpur Park", "lat":22.5078, "lon":88.3671, "description":"A very famous and grand puja in Jodhpur Park."},
-        {"name":"Babubagan Sarbojonin", "lat":22.5065, "lon":88.3633, "description":"A major attraction near Dhakuria."},
-        {"name":"Jodhpur Park Saradiya Utsab", "lat":22.5063, "lon":88.3692, "description":"A huge and popular puja in South Kolkata, known for its grand scale."},
-        {"name":"Taratala More", "lat":22.5063, "lon":88.3242, "description":"A key intersection for Behala and the port area."},
-        {"name":"Buro Shibatala", "lat":22.5055, "lon":88.3301, "description":"An old and respected puja near New Alipore."},
-        {"name":"Buroshivtala Durga Utsab", "lat":22.5055, "lon":88.3301, "description":"A traditional puja in the New Alipore area."},
-        {"name":"Santoshpur Lakepally", "lat":22.5049, "lon":88.3912, "description":"Famous for its beautiful pandal by the lake."},
-        {"name":"Debdaru Park", "lat":22.5042, "lon":88.3268, "description":"A well-known celebration in Behala."},
-        {"name":"Suruchi Sangha", "lat":22.5029, "lon":88.3621, "description":"Presents a different Indian state's culture each year. A major crowd-puller."},
-        {"name":"Santoshpur Avenue", "lat":22.5011, "lon":88.3902, "description":"A major puja on the Santoshpur Avenue."},
-        {"name":"Behala Notun Dal", "lat":22.5001, "lon":88.3223, "description":"Another major puja in Behala, known for its innovative concepts."},
-        {"name":"Trikon Park", "lat":22.4999, "lon":88.3865, "description":"A popular puja in the Santoshpur area."},
-        {"name":"Behala Friends Club", "lat":22.4975, "lon":88.3195, "description":"A popular puja in the Behala area."},
-        {"name":"Tollygunge Metro", "lat":22.4975, "lon":88.3444, "description":"A key metro station for accessing South Kolkata and Tollygunge pujas."},
-        {"name":"Jadavpur 8B Stand", "lat":22.4970, "lon":88.3694, "description":"A central hub for Jadavpur area pujas."},
-        {"name":"Behala Shree Sangha", "lat":22.4958, "lon":88.3231, "description":"A prominent puja in Behala."},
-        {"name":"Pally Mangal Samity", "lat":22.4912, "lon":88.3667, "description":"A respected community puja in Jadavpur."},
-        {"name":"Behala Chowrasta", "lat":22.4916, "lon":88.3151, "description":"The main intersection in Behala, surrounded by famous pujas."},
-        {"name":"Barisha Club", "lat":22.4883, "lon":88.3115, "description":"Located in Behala, it gained fame for its powerful and viral social themes."},
-        {"name":"41 Pally", "lat":22.4866, "lon":88.3355, "description":"A well-known club puja in Haridevpur."},
-        {"name":"Ajeyo Sanghati", "lat":22.4845, "lon":88.3321, "description":"A major crowd-puller in Haridevpur."},
-        {"name":"Haridevpur Adarsha Samiti", "lat":22.4821, "lon":88.3299, "description":"Known for its creativity and drawing huge crowds in the Tollygunge area."},
-        {"name":"Nabadurga", "lat":22.4795, "lon":88.3675, "description":"A popular puja near Naktala."},
-        {"name":"Naktala Udayan Sangha", "lat":22.4777, "lon":88.3697, "description":"Famous for its artistic brilliance, compelling social themes, and beautiful idols."},
-        {"name":"Panchadurga", "lat":22.4759, "lon":88.3712, "description":"A local celebration in the Naktala area."},
-        {"name":"Kavi Subhash Metro", "lat":22.4695, "lon":88.4024, "description":"Southernmost metro station, access point for Garia and Naktala pujas."},
-        {"name":"Thakurpukur SB Park", "lat":22.4648, "lon":88.3065, "description":"A prominent puja on the southern outskirts, famous for its grand pandals."},
-        {"name":"SBI Park", "lat":22.4648, "lon":88.3065, "description":"Another name for the famous Thakurpukur SB Park puja."}
-    ];
-    const startingPoints = {
-        "gariahat": { "lat": 22.5204, "lon": 88.3672, "area": "South", "label": "Gariahat Junction" },
-        "jadavpur": { "lat": 22.4970, "lon": 88.3694, "area": "South", "label": "Jadavpur 8B Stand" },
-        "tollygunge": { "lat": 22.4975, "lon": 88.3444, "area": "South", "label": "Tollygunge Metro" },
-        "hazra": { "lat": 22.5218, "lon": 88.3496, "area": "South", "label": "Hazra More" },
-        "rashbehari": { "lat": 22.5173, "lon": 88.3537, "area": "South", "label": "Rashbehari Crossing" },
-        "ruby": { "lat": 22.5132, "lon": 88.4043, "area": "South", "label": "Ruby Hospital" },
-        "kavi-subhash": { "lat": 22.4695, "lon": 88.4024, "area": "South", "label": "Kavi Subhash Metro" },
-        "kasba": { "lat": 22.5142, "lon": 88.3845, "area": "South", "label": "Kasba Golpark" },
-        "behala-chowrasta": { "lat": 22.4916, "lon": 88.3151, "area": "South", "label": "Behala Chowrasta" },
-        "shyambazar": { "lat": 22.5990, "lon": 88.3737, "area": "North", "label": "Shyambazar 5 Point" },
-        "dumdum": { "lat": 22.6247, "lon": 88.4023, "area": "North", "label": "Dum Dum Metro" },
-        "girish-park": { "lat": 22.5861, "lon": 88.3656, "area": "North", "label": "Girish Park Metro" },
-        "sovabazar": { "lat": 22.5954, "lon": 88.3671, "area": "North", "label": "Sovabazar Metro" },
-        "ultadanga": { "lat": 22.5936, "lon": 88.3892, "area": "North", "label": "Ultadanga" },
-        "sinthee-more": { "lat": 22.6267, "lon": 88.3849, "area": "North", "label": "Sinthee More" },
-        "maniktala": { "lat": 22.5866, "lon": 88.3789, "area": "North", "label": "Maniktala Crossing" },
-        "beliaghata": { "lat": 22.5710, "lon": 88.3900, "area": "North", "label": "Beliaghata CIT More" },
-        "esplanade": { "lat": 22.5639, "lon": 88.3524, "area": "All", "label": "Esplanade Metro" },
-        "sealdah": { "lat": 22.5645, "lon": 88.3711, "area": "All", "label": "Sealdah Station" },
-        "park-circus": { "lat": 22.5408, "lon": 88.3701, "area": "All", "label": "Park Circus 7 Point" },
-        "karunamoyee": { "lat": 22.5851, "lon": 88.4150, "area": "All", "label": "Karunamoyee, Salt Lake" }
-    };
 
     // --- DOM Elements ---
     const pandalSearchInput = document.getElementById('pandal-search');
@@ -282,12 +120,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- EVENT LISTENERS ---
     generateBtn.addEventListener('click', () => {
-        const sortedPandals = generateSortedList();
-        currentSuggestedItinerary = applyTimings(sortedPandals);
-        renderSuggestedItinerary(currentSuggestedItinerary);
-        updateRouteSummary(currentSuggestedItinerary);
-        updateMap(currentSuggestedItinerary, true);
-    });
+    const sortedPandals = generateSortedList();
+    currentSuggestedItinerary = applyTimings(sortedPandals);
+    renderSuggestedItinerary(currentSuggestedItinerary);
+    updateRouteSummary(currentSuggestedItinerary);
+    updateMap(currentSuggestedItinerary, true);
+    
+    // FINAL VERSION: Precise scroll to the top of the section
+    setTimeout(() => {
+        const itinerariesSection = document.getElementById('itineraries-section');
+        if (itinerariesSection) {
+            itinerariesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }, 100);
+});
     areaRadioButtons.forEach(radio => {
         radio.addEventListener('change', (e) => {
             updateStartPointsDropdown(e.target.value);
@@ -405,7 +251,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // --- CORE LOGIC & RENDER FUNCTIONS ---
-    function generateAndClassifyPandals() { pandalData = corePandals.map(p => ({ ...p, id: `${p.lat}-${p.lon}`, area: p.lat < KOLKATA_DIVIDING_LATITUDE ? 'South' : 'North' })); }
+    function generateAndClassifyPandals(corePandals) {
+        pandalData = corePandals.map(p => ({ 
+            ...p, 
+            id: `${p.lat}-${p.lon}`, 
+            area: p.lat < KOLKATA_DIVIDING_LATITUDE ? 'South' : 'North' 
+        }));
+    }
+    
     function generateSortedList() {
         const selectedArea = document.querySelector('input[name="area"]:checked').value;
         const filteredPandals = (selectedArea === 'All') ? pandalData : pandalData.filter(p => p.area === selectedArea);
@@ -826,10 +679,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- INITIALIZATION ---
-    function init() {
-        generateAndClassifyPandals();
-        updateStartPointsDropdown('North');
-        generateBtn.click();
+    async function init() {
+        try {
+            const response = await fetch('data.json');
+            const data = await response.json();
+            
+            startingPoints = data.startingPoints;
+            generateAndClassifyPandals(data.corePandals);
+            
+            updateStartPointsDropdown('North');
+            generateBtn.click();
+        } catch (error) {
+            console.error("Failed to load pandal data:", error);
+            alert("Error: Could not load pandal data. Please check data.json and try again.");
+        }
     }
 
     // --- Animated Donation Button Logic ---
