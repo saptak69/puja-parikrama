@@ -1,0 +1,15 @@
+# Cache all static assets for 1 year
+/css/*
+  Cache-Control: public, max-age=31536000, immutable
+/js/*
+  Cache-Control: public, max-age=31536000, immutable
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+/favicon.ico
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache HTML files but check for updates on each visit
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+/planner.html
+  Cache-Control: public, max-age=0, must-revalidate
