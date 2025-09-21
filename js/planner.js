@@ -594,7 +594,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateStartPointsDropdown(area) {
         startPointSelect.innerHTML = '';
         Object.entries(startingPoints).forEach(([key, value]) => {
-            if (value.area === 'All' || value.area === area) {
+            if (value.area === area) {
                 const option = document.createElement('option');
                 option.value = key;
                 option.textContent = value.label;
