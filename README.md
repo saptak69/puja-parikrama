@@ -1,175 +1,164 @@
-# 🎉 Puja Parikrama Planner
+## 🎉 Puja Parikrama Planner
 
-An interactive web application to plan and experience **Kolkata’s Durga Puja pandal hopping** with **smart route optimization**, **real-time maps**, and **personalized itineraries**.  
+An interactive web application designed to plan and experience **Durga Puja pandal hopping** in Kolkata and other districts with **smart route optimization**, **interactive maps**, and **personalized itineraries**. This project aims to make the festival more accessible and enjoyable by helping visitors discover pandals, create efficient custom routes, and navigate the city with ease.
 
-This project aims to make the Durga Puja festival more enjoyable by helping visitors discover pandals, create custom routes, and save time during pandal hopping.
+**➡️ Live Demo: [https://pujaparikrama.online/](https://pujaparikrama.online/)**
 
----
+-----
 
 ## ✨ Features
 
-- 🗺️ **Smart Route Planning**  
-  Automatically generate efficient itineraries to cover the maximum number of pandals within your chosen time frame.
+  - 🗺️ **Smart Route Planning**: Automatically generates the most efficient route to visit multiple pandals based on your selected start point, area, and time frame.
+    
+  - 📍 **Interactive Maps**: Utilizes **Leaflet.js** to display pandal locations, your generated route, and allows for interactive exploration.
+    
+  - 🕑 **Time Management**: Set your desired **start and end times** to get an optimized plan that fits your schedule, complete with estimated travel and visit times for each stop.
+    
+  - ❤️ **Personalized "My Plan"**: Add pandals from the suggested list to a custom plan. Your plan can be re-optimized, downloaded as a **PDF**, or shared via WhatsApp and other social media.
+    
+  - 🔐 **Secure Firebase Authentication**:
+      - Email/Password sign-up and login.
+      - One-click sign-in with **Google OAuth**.
+      - Persistent login sessions and a personalized profile page.
+        
+  - **Pandal Gallery & Search**: Browse through a gallery of pandals and use the search bar to quickly find specific ones on the map or in the gallery.
+    
+  - 🎭 **Cultural Insights**: A dedicated **Mahavidya Section** provides rich descriptions and stories of the ten divine forms of the Goddess, enhancing the cultural experience.
+    
+  - 💸 **Donation Support**: An integrated, animated "Buy me a Mishti" button opens a modal with options to support the project via Razorpay payment links.
+    
+  - 🎨 **Modern UI/UX**:
+      - A sleek **liquid glassmorphism** theme.
+      - Fully **responsive, mobile-first** design.
+      - Engaging animations on the hero section, buttons, and modals.
 
-- 📍 **Interactive Maps**  
-  Explore pandals with Leaflet.js maps showing markers, distances, and walking routes.
-
-- 🕑 **Time Management**  
-  Set your **start & end times** and get optimized plans for a smooth pandal-hopping experience.
-
-- ❤️ **My Plan (Save & Share)**  
-  Save selected pandals to your custom plan, download as **PDF**, or share via social media/WhatsApp.
-
-- 🔐 **Firebase Authentication**  
-  - Email/Password login  
-  - Google OAuth login  
-  - Personalized experience with profile support
-
-- 🎭 **Cultural Insights**  
-  Explore the **Mahavidya Section** with stories of the 10 Divine Mothers and traditional knowledge.
-
-- 🎨 **Modern UI/UX**  
-  - Glassmorphism effects  
-  - Responsive design (mobile-first)  
-  - Animated hero section & carousel  
-  - Smooth transitions  
-
----
+-----
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: HTML5, CSS3, Vanilla JavaScript  
-- **Styling**: Custom CSS with Glassmorphism + Animations  
-- **Maps**: [Leaflet.js](https://leafletjs.com/)  
-- **Auth & Data**: Firebase Authentication  
-- **Utilities**: PDF Export, Share via WhatsApp  
-- **Deployment**: Netlify / GitHub Pages  
+  - **Frontend**: HTML5, CSS3, Vanilla JavaScript (ES6 Modules)
+  - **Authentication**: Firebase Authentication
+  - **Mapping**: [Leaflet.js](https://leafletjs.com/)
+  - **PDF Generation**: [jsPDF](https://github.com/parallax/jsPDF) & [html2canvas](https://html2canvas.hertzen.com/)
+  - **Styling**: Custom CSS with Flexbox, Grid, Glassmorphism, and Keyframe Animations
+  - **Deployment**: Hosted on Netlify (with custom headers configured in `_headers`)
 
----
+-----
 
 ## 📸 Screenshots
 
-> Replace these with actual screenshots later.
+*(Note: Replace with your actual project screenshots)*
 
-- **Landing Page**  
-  ![Landing Page Screenshot](docs/screenshots/landing.png)
+  - **Landing Page**
+  - **Login / Signup Modal**
+  - **Planner & Itinerary View**
+  - **Interactive Map View**
+  - **Mahavidya Section**
+  - **Profile Page**
 
-- **Login / Signup Modal**  
-  ![Auth Screenshot](docs/screenshots/auth.png)
-
-- **Planner with Suggested Itinerary**  
-  ![Planner Screenshot](docs/screenshots/planner.png)
-
-- **Interactive Map View**  
-  ![Map Screenshot](docs/screenshots/map.png)
-
----
+-----
 
 ## 🚀 Getting Started
 
-Follow these steps to set up the project locally:
+Follow these steps to set up and run the project locally.
 
-### 1. Clone the Repository
+### 1\. Prerequisites
+
+  - [Git](https://git-scm.com/) installed on your machine.
+  - A code editor like [VS Code](https://code.visualstudio.com/) with the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension.
+
+### 2\. Clone the Repository
+
 ```bash
-git clone https://github.com/your-username/puja-parikrama.git
-cd puja-parikrama
-````
+git clone https://github.com/your-username/puja-parikrama-planner.git
+cd puja-parikrama-planner
+```
 
-### 2. Project Structure
+### 3\. Project Structure
+
+The codebase is organized as follows:
 
 ```
-├── index.html          # Landing Page
-├── planner.html        # Main Planner App
+puja-parikrama-main/
+├── index.html            # Landing Page
+├── planner.html          # Main Planner Application
+├── data.json             # Pandal data, coordinates, and descriptions
 ├── css/
-│   ├── style.css       # Styles for landing page
-│   ├── planner-style.css # Styles for planner app
+│   ├── style.css         # Styles for the landing page
+│   └── planner-style.css # Styles for the planner application
 ├── js/
-│   ├── auth.js         # Firebase Auth logic
-│   ├── planner.js      # Itinerary + Maps logic
-│   ├── ui.js           # UI & Carousel handling
-├── images/             # Screenshots
-└── README.md           # Documentation
+│   ├── auth.js           # Firebase Authentication logic
+│   ├── planner.js        # Core itinerary, map, and PDF logic
+│   └── ui.js             # UI interactions for the landing page
+├── _headers              # Netlify custom headers for caching
+├── sitemap.xml           # SEO sitemap
+├── robots.txt            # SEO instructions for crawlers
+└── README.md
 ```
 
-### 3. Firebase Setup
+### 4\. Firebase Setup
 
-1. Go to [Firebase Console](https://console.firebase.google.com/).
-2. Create a new project (`puja-parikrama`).
-3. Enable **Authentication → Sign-in Method** (Email/Password + Google).
-4. Copy your Firebase config and replace in `auth.js` and `planner.js`.
-5. Add your hosting URL (Netlify / GitHub Pages) in **Authorized Domains**.
+This project requires a Firebase backend for authentication.
 
-### 4. Run Locally
+1.  Go to the [Firebase Console](https://console.firebase.google.com/) and create a new project.
+2.  In your project, go to **Build \> Authentication**.
+3.  Click the **Sign-in method** tab and enable **Email/Password** and **Google** as sign-in providers.
+4.  Go to **Project Settings** (click the gear icon ⚙️) \> **General**.
+5.  Under "Your apps," click the web icon (`</>`) to create a new web app.
+6.  Copy the `firebaseConfig` object provided.
+7.  Paste this object into **`js/auth.js`** and **`js/planner.js`**, replacing the placeholder configuration.
+8.  In the Firebase Console, go back to **Authentication \> Settings \> Authorized domains** and add the domain where you will host your site (e.g., `localhost` for local testing, and your Netlify URL for production).
 
-Simply open `index.html` in your browser or use a local server:
+### 5\. Run Locally
 
-```bash
-# Using VS Code Live Server
-Right click → "Open with Live Server"
-```
+Open the project folder in VS Code and use the **Live Server** extension to launch `index.html`. The app will now be running on a local development server.
 
----
+-----
+
+## 🔧 Configuration & Customization
+
+You can easily customize key parts of the application:
+
+  - **Pandal Data**: To add, remove, or edit pandals, modify the `corePandals` array in **`data.json`**.
+  - **Starting Points**: To change the available starting locations, update the `startingPoints` object in **`data.json`**.
+  - **Donation Links**: The Razorpay payment links are stored in the `paymentLinks` object inside **`js/planner.js`**. You can replace these with your own.
+  - **Contact Email**: The "Contact Us" feature sends an email using a `mailto:` link. To change the recipient, update the `recipientEmail` variable at the end of **`js/planner.js`**.
+  - **Styling**: All visual styles can be modified in **`css/style.css`** (for the landing page) and **`css/planner-style.css`** (for the planner app).
+
+-----
 
 ## 🌐 Deployment
 
-### Option 1: Netlify
+This project is optimized for deployment on platforms like Netlify.
 
-1. Push your repo to GitHub.
-2. Go to [Netlify](https://www.netlify.com/) → New Site from Git.
-3. Connect your repo and deploy.
-4. Add your custom domain (e.g., `pujaparikrama.online`).
-5. Update DNS `A` record to point to Netlify IP.
+1.  Push your code to a GitHub repository.
+2.  Sign up or log in to [Netlify](https://www.netlify.com/).
+3.  Click **"New site from Git"** and choose your repository.
+4.  Netlify will automatically detect the build settings. Just click **"Deploy site."**
+5.  The `_headers` file is already configured to set optimal caching policies for your assets.
 
-### Option 2: GitHub Pages
-
-1. Push to GitHub.
-2. Go to **Repo Settings → Pages**.
-3. Select branch `main` and root folder.
-4. Access your site at `https://your-username.github.io/puja-parikrama/`.
-
----
-
-## 📖 Usage
-
-1. Open the app → [Landing Page](index.html).
-2. Click **Plan Your Journey** → Sign in with Email or Google.
-3. Configure your plan:
-
-   * Choose **Area (North/South/All)**
-   * Select **Start & End times**
-   * Pick a **Starting Point**
-4. Generate your itinerary.
-5. View in **Map Mode** or **List Mode**.
-6. Save to **My Plan**, export as PDF, or share with friends.
-
----
+-----
 
 ## 🤝 Contributing
 
-We welcome contributions!
+Contributions are welcome\! If you have ideas for new features or find a bug, please follow these steps:
 
-* Fork the repo
-* Create a feature branch: `git checkout -b feature-name`
-* Commit changes: `git commit -m "Added new feature"`
-* Push branch: `git push origin feature-name`
-* Open a Pull Request 🚀
+1.  Fork the repository.
+2.  Create a new feature branch: `git checkout -b feature/your-awesome-feature`
+3.  Make your changes and commit them: `git commit -m "Add: Your awesome feature"`
+4.  Push to the branch: `git push origin feature/your-awesome-feature`
+5.  Open a Pull Request.
 
----
+-----
 
 ## 📜 License
 
-This project is licensed under the **MIT License** – feel free to use, modify, and share.
+This project is licensed under the **MIT License**. See the `LICENSE` file for details.
 
----
+-----
 
 ## 🙌 Acknowledgements
 
-* [Leaflet.js](https://leafletjs.com/) for interactive maps
-* [Firebase](https://firebase.google.com/) for authentication
-* Durga Puja committees of Kolkata for cultural inspiration 🎭
-* Open-source contributors who keep this project alive ❤️
-
----
-
-```
-
+  - **[Firebase](https://firebase.google.com/)** for providing a robust and easy-to-use authentication backend.
+  - **[Leaflet.js](https://leafletjs.com/)** for the powerful and lightweight mapping library.
+  - The countless **Durga Puja committees and artists** whose creativity makes this festival a global spectacle.
