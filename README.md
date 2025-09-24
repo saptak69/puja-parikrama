@@ -79,7 +79,7 @@ cd puja-parikrama-planner
 The codebase is organized as follows:
 
 ```
-puja-parikrama-main/
+puja-parikrama
 ├── index.html            # Landing Page
 ├── planner.html          # Main Planner Application
 ├── data.json             # Pandal data, coordinates, and descriptions
