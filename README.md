@@ -2,7 +2,7 @@
 
 An interactive web application designed to plan and experience **Durga Puja pandal hopping** in Kolkata and other districts with **smart route optimization**, **interactive maps**, and **personalized itineraries**. This project aims to make the festival more accessible and enjoyable by helping visitors discover pandals, create efficient custom routes, and navigate the city with ease.
 
-**➡️ Live Demo: [https://pujaparikrama.online/](https://pujaparikrama.online/)**
+**➡️ Live Demo: [https://pujaparikrama.online/](https://pujaparikrama.online)**
 
 -----
 
