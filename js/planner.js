@@ -252,11 +252,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- CORE LOGIC & RENDER FUNCTIONS ---
     function generateAndClassifyPandals(corePandals) {
-        pandalData = corePandals.map(p => ({ 
-            ...p, 
-            id: `${p.lat}-${p.lon}`, 
-            area: p.lat < KOLKATA_DIVIDING_LATITUDE ? 'South' : 'North' 
-        }));
+        pandalData = corePandals.map(p => {
+            let assignedArea = 'Other';
+            if (p.district === 'Kolkata' || p.district === 'Howrah') {
+                assignedArea = p.lat < KOLKATA_DIVIDING_LATITUDE ? 'South' : 'North';
+            } else if (p.district === 'North 24 Parganas') {
+                assignedArea = 'North';
+            } else if (p.district === 'South 24 Parganas') {
+                assignedArea = 'South';
+            }
+            return { 
+                ...p, 
+                id: `${p.lat}-${p.lon}`, 
+                area: assignedArea 
+            };
+        });
     }
     
     function generateSortedList() {
@@ -594,7 +604,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateStartPointsDropdown(area) {
         startPointSelect.innerHTML = '';
         Object.entries(startingPoints).forEach(([key, value]) => {
-            if (value.area === area) {
+            if (area === 'All' || value.area === area || value.area === 'All') {
                 const option = document.createElement('option');
                 option.value = key;
                 option.textContent = value.label;

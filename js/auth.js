@@ -40,15 +40,15 @@ const signupSuccess = document.getElementById('signup-success');
 
 const redirectUrl = 'planner.html';
 
-// --- Check if user is already logged in ---
-// Redirects to planner if a session is found.
+let isInitialLoad = true;
 onAuthStateChanged(auth, (user) => {
-    if (user) {
+    if (user && isInitialLoad) {
         console.log("User is already signed in. Redirecting...");
         window.location.href = redirectUrl;
     } else {
         console.log("No active user session found.");
     }
+    isInitialLoad = false;
 });
 
 // --- Set Session Persistence ---
@@ -76,7 +76,7 @@ if (loginForm) {
                 loginSuccess.textContent = 'Login successful! Redirecting...';
                 loginSuccess.classList.add('active');
                 loginError.classList.remove('active');
-                // The onAuthStateChanged listener will handle the redirect automatically
+                window.location.href = redirectUrl;
             })
             .catch((error) => {
                 loginError.textContent = error.message;
@@ -100,14 +100,10 @@ if (signupForm) {
                 return updateProfile(userCredential.user, { displayName: name });
             })
             .then(() => {
-                signupSuccess.textContent = 'Account created successfully! Please login.';
+                signupSuccess.textContent = 'Account created successfully! Redirecting...';
                 signupSuccess.classList.add('active');
                 signupError.classList.remove('active');
-                setTimeout(() => {
-                    document.querySelector('.auth-tab[data-tab="login"]').click();
-                    document.getElementById('login-email').value = email;
-                    document.getElementById('login-password').value = '';
-                }, 2000);
+                window.location.href = redirectUrl;
             })
             .catch((error) => {
                 signupError.textContent = error.message;
@@ -130,7 +126,7 @@ const handleGoogleAuth = (button, successEl, errorEl) => {
             successEl.textContent = 'Success! Redirecting...';
             successEl.classList.add('active');
             errorEl.classList.remove('active');
-            // The onAuthStateChanged listener will handle the redirect automatically
+            window.location.href = redirectUrl;
         })
         .catch((error) => {
             errorEl.textContent = `Google Sign-In Error: ${error.message}`;
